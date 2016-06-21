@@ -4,7 +4,9 @@ Winston Chang & Aaron Artea
 
 ---
 ##Description
-Spindown starts as a life counter Android application for the "Magic the Gathering" TCG (tradable card game).  The Google Play store offers many applications with similar functionality, those that are free are feature light and lacked a great user experience. We aim to satisfy this void. 
+Spindown started as a life counter Android application for the "Magic the Gathering" TCG (tradable card game).  The Google Play store offers many applications with similar functionality, those that are there are feature heavy, but lacked a great user experience or feature light and weren't free. We aim to satisfy this void... 
+<br>
+<br>...within the allotted time of 1 week.
 
 
 ##Features
@@ -13,8 +15,9 @@ Spindown starts as a life counter Android application for the "Magic the Gatheri
 	- 1-4
 	- Change (initial) Life Totals: 20 | 30 | 40 (with corresponding selection toast)
 	- Reset Button
-- Customization:
-	- Primary Colors
+
+>All Customization (Primary Colors) moved to Stretch. ~W
+
 - Dice & Coin Toss:
 	- Coin & d6
 	- Skips ties
@@ -22,16 +25,28 @@ Spindown starts as a life counter Android application for the "Magic the Gatheri
 	- Cloudinary API to produce a Daily Random Card generator
 	<br>or
 	- Social Media integration (Posting that a game has started, etc)
-	
+
+
+###Wireframe / Mock
+1. View: Default
+1. Feature: Dice roll
+2. Feature: Player select (1,2,3,4)
+>Settings moved to Stretch / Material Design due to time constraints. ~W
+
+<br>![Wireframe](rm/spindown_mock.gif "Spindown Mock Animated")
 	
 
 ##Stretch Features / Future Updates
 ####MTG
 - Material Design:
 	- Animate. All. The. Things!
+	- View: Settings
+		- Feature: Settings - Format selection (20,30,40,Custom)
+		- Brightness Scale
 - Players:
-	- 5-6
+	- 5-6+
 - Customization:
+	- Primary Colors
 	- Mana (Splits) & Block/Set Backgrounds
 	- Life Counter additional orientation
 	- Take a picture to set as background; use photo library
@@ -53,20 +68,14 @@ Spindown starts as a life counter Android application for the "Magic the Gatheri
 - Beginner Mode Toggle (List of phases)
 - Deck Builder / Booster Draft
 
-####Yu-Gi-Oh!
+####Yu-Gi-Oh! Integration
 - Life Counter: 
-	- 8000 (Normal) or 2000 (Anime) modes; user input - glorified calculator)
-- Set Default Game Start (MTG or Yu-Gi-Oh!)
+	- 8000 (Normal) or 2000 (Anime) modes; user input - "glorified calculator")
+- Settings
+	- Set Default Game Start (MTG or Yu-Gi-Oh!)
+	- Splash screen 
 
 ---
-
-###Wireframe / Mock
-1. View: Default
-1. Feature: Dice roll
-2. Feature: Player select (1,2,3,4)
-3. View: Settings
-4. Feature: Settings - Format selection (20,30,40,Custom)
-<br>![Wireframe](rm/spindown_mock.gif "Spindown Mock Animated")
 
 <br>
 ###Research Plan Worksheet
@@ -93,3 +102,18 @@ Spindown starts as a life counter Android application for the "Magic the Gatheri
 
 ###Competitive Analysis
 ![Assessment](rm/competitiveAnalysis.png "Competitive Analysis")
+
+
+----------
+>Misc
+>
+><br>
+><br>
+><br>
+>[Spindown - Mk1](https://github.com/changwinstonr/AntediluvianYawgmoth/commits/master "Mk1")
+><br>
+><br>
+><br>
+><br>
+>
+
