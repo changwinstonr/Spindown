@@ -1,5 +1,7 @@
 package affinity.spindown;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -59,11 +61,58 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         fragmentManager = getFragmentManager();
-        fragment = fragmentManager.findFragmentById(R.id.main_activity);
+        switch(position){
+            case 0:
+                fragment = fragmentManager.findFragmentById(R.id.one_player);
+                if (fragment == null) {
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerActivity()).commit();
+                }
 
+                else if((fragmentManager.findFragmentById(R.id.one_player) !=
+                        null) && fragmentTwo != null){
+                    fragmentManager.beginTransaction().remove(fragmentManager
+                            .findFragmentById(R.id
+                            .two_player)).commit();
+                }
+
+
+                Toast.makeText(MainActivity.this, "One Player", Toast.LENGTH_SHORT).show();
+
+                break;
+            case 1:
+                fragmentTwo = fragmentManager.findFragmentById(R.id.two_player);
+                if (fragmentTwo == null && (fragmentManager.findFragmentById(R.id.one_player) !=
+                        null)) {
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerActivity()).commit();
+                    fragmentManager.beginTransaction().detach(fragmentManager.findFragmentById(R.id
+                            .one_player)).commit();
+                }
+
+                else if(fragmentTwo != null && (fragmentManager.findFragmentById(R.id.one_player) !=
+                    null)){
+                    fragmentManager.beginTransaction().detach(fragmentManager.findFragmentById(R.id
+                            .one_player)).commit();
+                }
+
+
+                Toast.makeText(MainActivity.this, "Two Players", Toast.LENGTH_SHORT).show();
+                break;
+
+            case 2:
+
+                Toast.makeText(MainActivity.this, "Three Players", Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
+                break;
+
+            default:
+                Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
