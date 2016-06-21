@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="affinity.spindown">
+          package="affinity.spindown">
 
     <application
         android:allowBackup="true"
@@ -10,10 +10,18 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".OnePlayerActivity">
+        </activity>
+        <activity android:name=".TwoPlayerActivity">
+        </activity>
+        <activity android:name=".ThreePlayerActivity">
+        </activity>
+        <activity android:name=".FourPlayerActivity">
         </activity>
     </application>
 
