@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class OnePlayerActivity extends Fragment {
 
-        Button getRight, getLeft;
+        Button getRight, getLeft, Reset;
         TextView tv;
         int counterPlayer;
 
@@ -29,21 +29,21 @@ public class OnePlayerActivity extends Fragment {
 
             getRight = (Button) view.findViewById(R.id.right);
             getLeft = (Button) view.findViewById(R.id.left);
+            Reset = (Button) view.findViewById(R.id.button);
             tv = (TextView) view.findViewById(R.id.textView);
 
             //Add to 1st player life
-            getLeft.setOnClickListener(new View.OnClickListener(){
+            getRight.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
                     counterPlayer+=1;
                     String counter = Integer.toString(counterPlayer);
                     tv.setText(counter);
-
                 }
             });
 
             //Subtract to 1st player life
-            getRight.setOnClickListener(new View.OnClickListener(){
+            getLeft.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
                     counterPlayer-=1;
@@ -52,6 +52,15 @@ public class OnePlayerActivity extends Fragment {
                 }
             });
 
+            //Reset player 1 life
+            Reset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    counterPlayer=0;
+                    String counter = Integer.toString(counterPlayer);
+                    tv.setText(counter);
+                }
+            });
             return view;
         }
     }

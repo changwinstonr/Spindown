@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 public class TwoPlayerActivity extends Fragment {
 
-    Button getRightP2, getLeftP2, getRight, getLeft;
-    TextView getTopPlayerTop, getTopPlayerBottom, getBottomPlayerBottom, getBottomPlayerTop;
+    Button getRightP2, getLeftP2, getRightP1, getLeftP1, Reset;
     TextView tv, tv2;
     int counterPlayerOne, counterPlayerTwo;
 
@@ -29,21 +28,17 @@ public class TwoPlayerActivity extends Fragment {
         View view = inflater.inflate(R.layout.activity_two_player, container, false);
 
 
-        getRightP2 = (Button) view.findViewById(R.id.rightP2);
-        getLeftP2 = (Button) view.findViewById(R.id.leftP2);
-        getRight = (Button) view.findViewById(R.id.right);
-        getLeft = (Button) view.findViewById(R.id.left);
-        tv = (TextView) view.findViewById(R.id.textViewP1);
-        tv2 = (TextView) view.findViewById(R.id.textViewP2);
-
-//        getTopPlayerTop = (TextView) view.findViewById(R.id.topPlayerTop);
-//        getTopPlayerBottom = (TextView) view.findViewById(R.id.topPlayerBottom);
-//        getBottomPlayerTop = (TextView) view.findViewById(R.id.bottomPlayerTop);
-//        getBottomPlayerBottom = (TextView) view.findViewById(R.id.bottomPlayerBottom);
+        getRightP2  = (Button) view.findViewById(R.id.rightP2);
+        getLeftP2   = (Button) view.findViewById(R.id.leftP2);
+        getRightP1    = (Button) view.findViewById(R.id.rightP1);
+        getLeftP1     = (Button) view.findViewById(R.id.leftP1);
+        tv          = (TextView) view.findViewById(R.id.textViewP1);
+        tv2         = (TextView) view.findViewById(R.id.textViewP2);
+        Reset       = (Button) view.findViewById(R.id.button);
 
 
         //Add to 1st player life
-        getLeft.setOnClickListener(new View.OnClickListener() {
+        getRightP1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counterPlayerOne += 1;
@@ -53,7 +48,7 @@ public class TwoPlayerActivity extends Fragment {
         });
 
         //Subtract to 1st player life
-        getRight.setOnClickListener(new View.OnClickListener() {
+        getLeftP1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counterPlayerOne -= 1;
@@ -63,23 +58,36 @@ public class TwoPlayerActivity extends Fragment {
         });
 
         //Add to 2nd player life
-        getLeftP2.setOnClickListener(new View.OnClickListener() {
+        getRightP2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counterPlayerTwo += 1;
-                String counter = Integer.toString(counterPlayerOne);
+                String counter = Integer.toString(counterPlayerTwo);
                 tv2.setText(counter);
 
             }
         });
 
-        //Subtract to 1st player life
-        getRight.setOnClickListener(new View.OnClickListener() {
+        //Subtract to 2nd player life
+        getLeftP2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counterPlayerTwo -= 1;
-                String counter = Integer.toString(counterPlayerOne);
+                String counter = Integer.toString(counterPlayerTwo);
                 tv2.setText(counter);
+            }
+        });
+
+        //Reset player 1 life
+        Reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counterPlayerOne=0;
+                counterPlayerTwo=0;
+                String counter = Integer.toString(counterPlayerOne);
+                String counterTwo = Integer.toString(counterPlayerTwo);
+                tv.setText(counter);
+                tv2.setText(counterTwo);
             }
         });
 
