@@ -78,7 +78,7 @@ public class TwoPlayerActivity extends Fragment {
             }
         });
 
-        //Reset player 1 life
+        //Reset player 1 and 2 life
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

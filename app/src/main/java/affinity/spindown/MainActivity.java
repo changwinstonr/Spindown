@@ -63,12 +63,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (fragment == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerActivity()).commit();
                 }
-                else if((fragmentManager.findFragmentById(R.id.one_player) !=
-                        null) && fragmentTwo != null){
-                    fragmentManager.beginTransaction().remove(fragmentManager
-                            .findFragmentById(R.id
-                            .two_player)).commit();
-                }
+//                else if((fragmentManager.findFragmentById(R.id.one_player) !=
+//                        null) && fragmentTwo != null){
+//                    fragmentManager.beginTransaction().remove(fragmentManager
+//                            .findFragmentById(R.id
+//                            .two_player)).commit();
+//                }
 
                 Toast.makeText(MainActivity.this, "One Player", Toast.LENGTH_SHORT).show();
 
@@ -78,18 +78,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (fragmentTwo == null ) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerActivity()).commit();
                 }
-                else if(fragmentTwo != null && (fragmentManager.findFragmentById(R.id.one_player) !=
-                    null)){
-//                    playerOneLayout.setVisibility(parent.GONE);
-                    fragmentManager.beginTransaction().remove(fragmentManager.findFragmentById(R.id
-                            .one_player)).commit();
-                }
+//                else if(fragmentTwo != null && (fragmentManager.findFragmentById(R.id.one_player) !=
+//                    null)){
+////                    playerOneLayout.setVisibility(parent.GONE);
+//                    fragmentManager.beginTransaction().remove(fragmentManager.findFragmentById(R.id
+//                            .one_player)).commit();
+//                }
 
 
                 Toast.makeText(MainActivity.this, "Two Players", Toast.LENGTH_SHORT).show();
                 break;
 
             case 2:
+                fragmentThree = fragmentManager.findFragmentById(R.id.three_player);
+                if (fragmentThree == null ) {
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
+                            ThreePlayerActivity()).commit();
+                }
 
                 Toast.makeText(MainActivity.this, "Three Players", Toast.LENGTH_SHORT).show();
                 break;
