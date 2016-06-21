@@ -1,6 +1,7 @@
 package affinity.spindown;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,12 @@ public class OnePlayerActivity extends Fragment {
             getLeft = (Button) view.findViewById(R.id.left);
             Reset = (Button) view.findViewById(R.id.button);
             tv = (TextView) view.findViewById(R.id.textView);
+
+
+            Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
+            getRight.setTypeface(tf);
+            getLeft.setTypeface(tf);
+            tv.setTypeface(tf);
 
             //Add to 1st player life
             getRight.setOnClickListener(new View.OnClickListener(){
