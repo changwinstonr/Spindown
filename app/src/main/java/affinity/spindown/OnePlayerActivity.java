@@ -33,7 +33,6 @@ public class OnePlayerActivity extends Fragment {
             Reset = (Button) view.findViewById(R.id.button);
             tv = (TextView) view.findViewById(R.id.textView);
 
-
             Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
             getRight.setTypeface(tf);
             getLeft.setTypeface(tf);
