@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 public class OnePlayerActivity extends Fragment {
 
-        Button getBottomRight, getBottomLeft, getRight, getLeft;
-        //    TextView getTopPlayerTop, getTopPlayerBottom, getBottomPlayerBottom, getBottomPlayerTop;
+        Button getRight, getLeft;
         TextView tv;
         int counterPlayer;
 
@@ -26,20 +25,11 @@ public class OnePlayerActivity extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
                 savedInstanceState) {
-            View view = inflater.inflate(R.layout.activity_main, container, false);
+            View view = inflater.inflate(R.layout.activity_one_player, container, false);
 
-
-//        getBottomRight = (Button) view.findViewById(R.id.bottomRight);
-//        getBottomLeft = (Button) view.findViewById(R.id.bottomLeft);
             getRight = (Button) view.findViewById(R.id.right);
             getLeft = (Button) view.findViewById(R.id.left);
             tv = (TextView) view.findViewById(R.id.textView);
-
-//        getTopPlayerTop = (TextView) view.findViewById(R.id.topPlayerTop);
-//        getTopPlayerBottom = (TextView) view.findViewById(R.id.topPlayerBottom);
-//        getBottomPlayerTop = (TextView) view.findViewById(R.id.bottomPlayerTop);
-//        getBottomPlayerBottom = (TextView) view.findViewById(R.id.bottomPlayerBottom);
-
 
             //Add to 1st player life
             getLeft.setOnClickListener(new View.OnClickListener(){
