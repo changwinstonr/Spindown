@@ -2,12 +2,94 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/two_player"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#be8c387d"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="affinity.spindown.TwoPlayerActivity">
+
+    <TextView
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:hint="Text Please 1"
+        android:textSize="14sp"
+        android:background="#fff"
+        android:id="@+id/textViewP1"
+        android:layout_marginTop="64dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/rightP1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:background="#fff"
+        android:hint="Text Please 2"
+        android:textSize="14sp"
+        android:id="@+id/textViewP2"
+        android:layout_below="@+id/leftP1"
+        android:layout_toLeftOf="@+id/rightP1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/rightP2"/>
+
+    <Button
+        android:layout_height="60dp"
+        android:layout_width="110dp"
+        android:id="@+id/leftP1"
+        android:text="Left"
+        android:textAlignment="gravity"
+        android:background="#da5632"
+        android:layout_below="@+id/textViewP1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_height="60dp"
+        android:layout_width="110dp"
+        android:id="@+id/rightP1"
+        android:text="Right"
+        android:background="#da5632"
+        android:layout_above="@+id/leftP2"
+        android:layout_toRightOf="@+id/leftP1"
+        android:layout_toEndOf="@+id/leftP1"/>
+
+    <Button
+        android:layout_height="60dp"
+        android:layout_width="110dp"
+        android:id="@+id/leftP2"
+        android:text="Left"
+        android:textAlignment="gravity"
+        android:background="#237b9e"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/leftP1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_height="60dp"
+        android:layout_width="110dp"
+        android:id="@+id/rightP2"
+        android:text="Right"
+        android:background="#237b9e"
+        android:layout_alignTop="@+id/leftP2"
+        android:layout_toRightOf="@+id/leftP2"
+        android:layout_toEndOf="@+id/leftP2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:id="@+id/button"
+        android:layout_below="@+id/leftP2"
+        android:layout_toRightOf="@+id/leftP2"
+        android:layout_toEndOf="@+id/leftP2"
+        android:layout_marginTop="54dp"/>
+
 
 </RelativeLayout>
