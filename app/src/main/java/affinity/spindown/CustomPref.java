@@ -18,9 +18,9 @@ import android.widget.SeekBar;
 
 public class CustomPref extends AppCompatActivity {
 
-    private EditText prefEditText;
-    private CheckBox prefCheckbox;
-    private RadioGroup prefRadioGroup;
+    private EditText playerOne, playerTwo, playerThree, playerFour;
+    private CheckBox checkBox;
+    private RadioGroup radioGroup;
     private SeekBar seekBar;
 
     @Override
@@ -28,18 +28,35 @@ public class CustomPref extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_pref);
 
-        SharedPreferences customSharedPreference = getSharedPreferences("myCustomSharedPrefs", Activity.MODE_PRIVATE);
+        SharedPreferences customSharedPreference = getSharedPreferences("customSharedPrefs",
+                Activity.MODE_PRIVATE);
 
-        prefEditText = (EditText) findViewById(R.id.editText1);
-        prefEditText.setText(customSharedPreference.getString("myEditTextPref", ""));
+        //PlayerOne
+        playerOne = (EditText) findViewById(R.id.editText1);
+        playerOne.setText(customSharedPreference.getString("editTextPref", ""));
+
+        //PlayerTwo
+        playerTwo = (EditText) findViewById(R.id.editText);
+        playerTwo.setText(customSharedPreference.getString("editTextPref", ""));
+
+        //PlayerThree
+        playerThree = (EditText) findViewById(R.id.editText2);
+        playerThree.setText(customSharedPreference.getString("editTextPref", ""));
+
+        //PlayerFour
+        playerFour = (EditText) findViewById(R.id.editText3);
+        playerFour.setText(customSharedPreference.getString("editTextPref", ""));
 
         //If checkbox is false, make radiogroup invisible
-        prefCheckbox = (CheckBox) findViewById(R.id.checkBox1);
-        prefCheckbox.setChecked(customSharedPreference.getBoolean("myCheckBoxPref", false));
+        checkBox = (CheckBox) findViewById(R.id.checkBox1);
+        checkBox.setChecked(customSharedPreference.getBoolean("checkBoxPref", false));
 
-        prefRadioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
         RadioButton radioButton0 = (RadioButton) findViewById(R.id.radio0);
-        prefRadioGroup.check(customSharedPreference.getInt("myRadioGroupPref",radioButton0.getId()));
+        RadioButton radioButton1 = (RadioButton) findViewById(R.id.radio1);
+        radioGroup.check(customSharedPreference.getInt("radioGroupPref",radioButton0.getId()));
+        radioGroup.check(customSharedPreference.getInt("radioGroupPref",radioButton1.getId
+                ()));
 
         Button mClose = (Button)findViewById(R.id.close);
         mClose.setOnClickListener(new OnClickListener()
@@ -60,6 +77,7 @@ public class CustomPref extends AppCompatActivity {
             }
         });
 
+        //Adds brightness functionality to screen
         seekBar = (SeekBar) findViewById(R.id.seekBar1);
         seekBar.setMax(255);
 
@@ -100,14 +118,15 @@ public class CustomPref extends AppCompatActivity {
 
     private void savePreferences(){
 
-        SharedPreferences customSharedPreference = getSharedPreferences("myCustomSharedPrefs", Activity.MODE_PRIVATE);
+        SharedPreferences customSharedPreference = getSharedPreferences("customSharedPrefs",
+                Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = customSharedPreference.edit();
-        editor.putString("myEditTextPref", prefEditText.getText().toString());
-        editor.putBoolean("myCheckBoxPref",prefCheckbox.isChecked());
-        editor.putInt("myRadioGroupPref", prefRadioGroup.getCheckedRadioButtonId());
+        editor.putString("editTextPref", playerOne.getText().toString());
+        editor.putBoolean("checkBoxPref",checkBox.isChecked());
+        editor.putInt("radioGroupPref", radioGroup.getCheckedRadioButtonId());
         editor.commit();
 
-        RadioButton radioButton = (RadioButton) findViewById(prefRadioGroup.getCheckedRadioButtonId());
+        RadioButton radioButton = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
         Log.v("Preferences:", "Radio Text: " + radioButton.getText());
     }
 }

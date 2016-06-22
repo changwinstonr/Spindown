@@ -64,11 +64,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        //User selects settings icon
         if (item.getItemId() == R.id.settings) {
             Intent settingsActivity = new Intent(getBaseContext(),
                     CustomPref.class);
             startActivity(settingsActivity);
         }
+
+        //User selects reset icon
+
+
+
+
+
         return false;
     }
 

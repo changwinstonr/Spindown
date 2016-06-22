@@ -10,10 +10,9 @@
         android:id="@+id/seekBrightness"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/brightness"
-        android:layout_marginTop="29dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/radioGroup1"
-        android:layout_toEndOf="@+id/radioGroup1"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <SeekBar
         android:id="@+id/seekBar1"
         android:layout_width="300dp"
@@ -22,63 +21,44 @@
         android:layout_below="@+id/seekBrightness"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/playerOne"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/seekBar1"
-        android:layout_toRightOf="@+id/radioGroup1"
-        android:layout_toEndOf="@+id/radioGroup1"
-        android:layout_marginTop="38dp"/>
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_alignLeft="@+id/save"
-        android:layout_alignStart="@+id/save">
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Checkbox Preference"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_above="@+id/checkBox1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
 
     <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/longPress"
-        android:layout_toRightOf="@+id/radioGroup1"
-        android:layout_toEndOf="@+id/radioGroup1"
-        android:layout_above="@+id/textView4"/>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Radio Button Preference"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_above="@+id/radio0"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
+        android:checked="false"
+        android:layout_above="@+id/textView4"
+        android:layout_alignRight="@+id/save"
+        android:layout_alignEnd="@+id/save"/>
     <RadioGroup
         android:id="@+id/radioGroup1"
+        android:checkedButton="@+id/value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView4">
+        android:layout_above="@+id/save"
+        android:layout_toLeftOf="@+id/save"
+        android:layout_alignLeft="@+id/checkBox1"
+        android:layout_alignStart="@+id/checkBox1">
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="+/- 1"
+            android:layout_above="@+id/radio1"
+            android:layout_alignLeft="@+id/checkbox"
+            android:layout_alignStart="@+id/checkbox"/>
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+/- 5"
+            android:checked="false"
+            android:layout_above="@+id/save"
+            android:layout_alignLeft="@+id/radio0"
+            android:layout_alignStart="@+id/radio0"/>
+
 
     </RadioGroup>
 
@@ -87,9 +67,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
-        android:layout_alignTop="@+id/close"
-        android:layout_toLeftOf="@+id/close"
-        android:layout_toStartOf="@+id/close"/>
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"/>
 
     <Button
         android:id="@+id/close" style="?android:attr/buttonStyleSmall"
@@ -97,37 +77,114 @@
         android:layout_height="wrap_content"
         android:text="Cancel"
         android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/checkBox1"
+        android:layout_toEndOf="@+id/checkBox1"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/playerOne"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/editText"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"/>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2">
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Counter Values"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/checkBox1"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"/>
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Counter Increment"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/radioGroup1"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/playerTwo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/editText2"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_above="@+id/editText2"
+        android:layout_alignRight="@+id/seekBar1"
+        android:layout_alignEnd="@+id/seekBar1"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignStart="@+id/editText1"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/playerThree"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/editText3"
+        android:layout_alignLeft="@+id/seekBar1"
+        android:layout_alignStart="@+id/seekBar1"/>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_above="@+id/editText3"
         android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_marginBottom="62dp"/>
+        android:layout_toEndOf="@+id/textView3"/>
 
-    <RadioButton
-        android:id="@+id/radio2"
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton"
-        android:layout_marginBottom="56dp"
-        android:layout_above="@+id/save"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:text="@string/playerFour"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignBottom="@+id/editText3"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"/>
 
-    <RadioButton
-        android:id="@+id/radio1"
+    <EditText
+        android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton"
-        android:layout_above="@+id/radio2"
-        android:layout_toRightOf="@+id/radioGroup1"
-        android:layout_toEndOf="@+id/radioGroup1"/>
-
-    <RadioButton
-        android:id="@+id/radio0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="RadioButton"
-        android:layout_above="@+id/radio1"
-        android:layout_toRightOf="@+id/radioGroup1"
-        android:layout_toEndOf="@+id/radioGroup1"/>
+        android:ems="10"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"/>
 
 </RelativeLayout>
