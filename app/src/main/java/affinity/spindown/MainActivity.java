@@ -1,24 +1,13 @@
 package affinity.spindown;
 
 
-import android.annotation.TargetApi;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import android.annotation.TargetApi;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +15,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import org.jetbrains.annotations.NotNull;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -37,12 +28,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //    @NOTE: Attempted to hide layout when another fragment is initiated. Another try at hiding fragments.
 //    RelativeLayout playerOneLayout;
 
+    private Toolbar toolbar;
+
+    @NotNull
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        playerOneLayout = (RelativeLayout) findViewById(R.id.one_player);
 //        DataBindingUtil.setContentView(this, R.layout.activity_main);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
     }
 
     //Create our  menu
@@ -56,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mSpinnerAdapter = ArrayAdapter.createFromResource(this,
                 R.array.numberPlayer, android.R.layout.simple_spinner_item);
         mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinner.setBackgroundResource(R.drawable.ic_players_gold_36x);
+//        mSpinner.setBackgroundColor(000);
         mSpinner.setAdapter(mSpinnerAdapter);
         mSpinner.setOnItemSelectedListener(this);
 
