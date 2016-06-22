@@ -33,8 +33,8 @@ Spindown started as a life counter Android application for the "Magic the Gather
 2. Feature: Player select (1,2,3,4)
 >Settings moved to Stretch / Material Design due to time constraints. ~W
 
-<br>![Wireframe](rm/spindown_mock.gif "Spindown Mock Animated")
-	
+<br>![Wireframe](rm/spindown_mock.gif "Spindown Prototype 1-ani")
+<br>Spindown Prototype 1	
 
 ##Stretch Features / Future Updates
 ####MTG

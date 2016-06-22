@@ -1,6 +1,7 @@
 package affinity.spindown;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +19,9 @@ public class ThreePlayerActivity extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Edit counter with settings options; for now, default: 0
-        counterPlayerOne = 0;
-        counterPlayerTwo = 0;
-        counterPlayerThree = 0;
+        counterPlayerOne = 20;
+        counterPlayerTwo = 20;
+        counterPlayerThree = 20;
     }
 
     @Override
@@ -32,13 +33,23 @@ public class ThreePlayerActivity extends Fragment {
         getLeftP3   = (Button) view.findViewById(R.id.leftP3);
         getRightP2  = (Button) view.findViewById(R.id.rightP2);
         getLeftP2   = (Button) view.findViewById(R.id.leftP2);
-        getRightP1    = (Button) view.findViewById(R.id.rightP1);
-        getLeftP1     = (Button) view.findViewById(R.id.leftP1);
+        getRightP1  = (Button) view.findViewById(R.id.rightP1);
+        getLeftP1   = (Button) view.findViewById(R.id.leftP1);
         tv          = (TextView) view.findViewById(R.id.textViewP1);
         tv2         = (TextView) view.findViewById(R.id.textViewP2);
         tv3         = (TextView) view.findViewById(R.id.textViewP3);
         Reset       = (Button) view.findViewById(R.id.button);
 
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
+        getRightP3.setTypeface(tf);
+        getLeftP3.setTypeface(tf);
+        getRightP2.setTypeface(tf);
+        getLeftP2.setTypeface(tf);
+        getRightP1.setTypeface(tf);
+        getLeftP1.setTypeface(tf);
+        tv.setTypeface(tf);
+        tv2.setTypeface(tf);
+        tv3.setTypeface(tf);
 
         //Add to 1st player life
         getRightP1.setOnClickListener(new View.OnClickListener() {
@@ -106,11 +117,11 @@ public class ThreePlayerActivity extends Fragment {
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counterPlayerOne=0;
-                counterPlayerTwo=0;
-                counterPlayerThree=0;
-                String counter = Integer.toString(counterPlayerOne);
-                String counterTwo = Integer.toString(counterPlayerTwo);
+                counterPlayerOne    = 20;
+                counterPlayerTwo    = 20;
+                counterPlayerThree  = 20;
+                String counter      = Integer.toString(counterPlayerOne);
+                String counterTwo   = Integer.toString(counterPlayerTwo);
                 String counterThree = Integer.toString(counterPlayerThree);
                 tv.setText(counter);
                 tv2.setText(counterTwo);
