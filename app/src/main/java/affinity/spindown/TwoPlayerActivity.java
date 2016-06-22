@@ -90,10 +90,10 @@ public class TwoPlayerActivity extends Fragment {
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counterPlayerOne=20;
-                counterPlayerTwo=20;
-                String counter = Integer.toString(counterPlayerOne);
-                String counterTwo = Integer.toString(counterPlayerTwo);
+                counterPlayerOne    = 20;
+                counterPlayerTwo    = 20;
+                String counter      = Integer.toString(counterPlayerOne);
+                String counterTwo   = Integer.toString(counterPlayerTwo);
                 tv.setText(counter);
                 tv2.setText(counterTwo);
             }

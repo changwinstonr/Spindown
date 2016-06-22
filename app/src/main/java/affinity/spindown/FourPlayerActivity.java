@@ -1,7 +1,7 @@
 package affinity.spindown;
 
 import android.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +21,10 @@ public class FourPlayerActivity extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Edit counter with settings options; for now, default: 0
-        counterPlayerOne = 0;
-        counterPlayerTwo = 0;
-        counterPlayerThree = 0;
-        counterPlayerFour = 0;
+        counterPlayerOne    = 20;
+        counterPlayerTwo    = 20;
+        counterPlayerThree  = 20;
+        counterPlayerFour   = 20;
     }
 
     @Override
@@ -38,14 +38,27 @@ public class FourPlayerActivity extends Fragment {
         getLeftP3   = (Button) view.findViewById(R.id.leftP3);
         getRightP2  = (Button) view.findViewById(R.id.rightP2);
         getLeftP2   = (Button) view.findViewById(R.id.leftP2);
-        getRightP1    = (Button) view.findViewById(R.id.rightP1);
-        getLeftP1     = (Button) view.findViewById(R.id.leftP1);
+        getRightP1  = (Button) view.findViewById(R.id.rightP1);
+        getLeftP1   = (Button) view.findViewById(R.id.leftP1);
         tv          = (TextView) view.findViewById(R.id.textViewP1);
         tv2         = (TextView) view.findViewById(R.id.textViewP2);
         tv3         = (TextView) view.findViewById(R.id.textViewP3);
         tv4         = (TextView) view.findViewById(R.id.textViewP4);
         Reset       = (Button) view.findViewById(R.id.button);
 
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
+        getRightP4.setTypeface(tf);
+        getLeftP4.setTypeface(tf);
+        getRightP3.setTypeface(tf);
+        getLeftP3.setTypeface(tf);
+        getRightP2.setTypeface(tf);
+        getLeftP2.setTypeface(tf);
+        getLeftP1.setTypeface(tf);
+        tv.setTypeface(tf);
+        tv2.setTypeface(tf);
+        tv3.setTypeface(tf);
+        tv4.setTypeface(tf);
+        getRightP1.setTypeface(tf);
 
         //Add to 1st player life
         getRightP1.setOnClickListener(new View.OnClickListener() {
@@ -134,14 +147,14 @@ public class FourPlayerActivity extends Fragment {
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counterPlayerOne=0;
-                counterPlayerTwo=0;
-                counterPlayerThree=0;
-                counterPlayerFour=0;
-                String counter = Integer.toString(counterPlayerOne);
-                String counterTwo = Integer.toString(counterPlayerTwo);
+                counterPlayerOne    = 0;
+                counterPlayerTwo    = 0;
+                counterPlayerThree  = 0;
+                counterPlayerFour   = 0;
+                String counter      = Integer.toString(counterPlayerOne);
+                String counterTwo   = Integer.toString(counterPlayerTwo);
                 String counterThree = Integer.toString(counterPlayerThree);
-                String counterFour = Integer.toString(counterPlayerFour);
+                String counterFour  = Integer.toString(counterPlayerFour);
                 tv.setText(counter);
                 tv2.setText(counterTwo);
                 tv3.setText(counterThree);

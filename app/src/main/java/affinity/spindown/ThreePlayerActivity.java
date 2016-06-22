@@ -33,8 +33,8 @@ public class ThreePlayerActivity extends Fragment {
         getLeftP3   = (Button) view.findViewById(R.id.leftP3);
         getRightP2  = (Button) view.findViewById(R.id.rightP2);
         getLeftP2   = (Button) view.findViewById(R.id.leftP2);
-        getRightP1    = (Button) view.findViewById(R.id.rightP1);
-        getLeftP1     = (Button) view.findViewById(R.id.leftP1);
+        getRightP1  = (Button) view.findViewById(R.id.rightP1);
+        getLeftP1   = (Button) view.findViewById(R.id.leftP1);
         tv          = (TextView) view.findViewById(R.id.textViewP1);
         tv2         = (TextView) view.findViewById(R.id.textViewP2);
         tv3         = (TextView) view.findViewById(R.id.textViewP3);
@@ -117,11 +117,11 @@ public class ThreePlayerActivity extends Fragment {
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counterPlayerOne=20;
-                counterPlayerTwo=20;
-                counterPlayerThree=20;
-                String counter = Integer.toString(counterPlayerOne);
-                String counterTwo = Integer.toString(counterPlayerTwo);
+                counterPlayerOne    = 20;
+                counterPlayerTwo    = 20;
+                counterPlayerThree  = 20;
+                String counter      = Integer.toString(counterPlayerOne);
+                String counterTwo   = Integer.toString(counterPlayerTwo);
                 String counterThree = Integer.toString(counterPlayerThree);
                 tv.setText(counter);
                 tv2.setText(counterTwo);
