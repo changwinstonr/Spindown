@@ -23,15 +23,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ArrayAdapter<CharSequence> mSpinnerAdapter;
     FragmentManager fragmentManager;
     Fragment fragment, fragmentTwo, fragmentThree, fragmentFour;
-    RelativeLayout playerOneLayout;
+//    @NOTE: Attempted to hide layout when another fragment is initiated. Another try at
+//    hiding fragments.
+//    RelativeLayout playerOneLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        playerOneLayout = (RelativeLayout) findViewById(R.id.one_player);
-
+//        playerOneLayout = (RelativeLayout) findViewById(R.id.one_player);
     }
 
     //Create our  menu
@@ -51,61 +51,60 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
-
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         fragmentManager = getFragmentManager();
         switch(position){
+            //Creates our Player 1
             case 0:
                 fragment = fragmentManager.findFragmentById(R.id.one_player);
                 if (fragment == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerActivity()).commit();
                 }
+//                @NOTE: Manage this when you can! Try one at hiding fragments/visibility
 //                else if((fragmentManager.findFragmentById(R.id.one_player) !=
 //                        null) && fragmentTwo != null){
 //                    fragmentManager.beginTransaction().remove(fragmentManager
 //                            .findFragmentById(R.id
 //                            .two_player)).commit();
 //                }
-
                 Toast.makeText(MainActivity.this, "One Player", Toast.LENGTH_SHORT).show();
-
                 break;
+
+            //Creates our Player 2
             case 1:
                 fragmentTwo = fragmentManager.findFragmentById(R.id.two_player);
                 if (fragmentTwo == null ) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerActivity()).commit();
                 }
-//                else if(fragmentTwo != null && (fragmentManager.findFragmentById(R.id.one_player) !=
-//                    null)){
-////                    playerOneLayout.setVisibility(parent.GONE);
-//                    fragmentManager.beginTransaction().remove(fragmentManager.findFragmentById(R.id
-//                            .one_player)).commit();
-//                }
-
 
                 Toast.makeText(MainActivity.this, "Two Players", Toast.LENGTH_SHORT).show();
                 break;
 
+            //Creates our Player 3
             case 2:
                 fragmentThree = fragmentManager.findFragmentById(R.id.three_player);
                 if (fragmentThree == null ) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
                             ThreePlayerActivity()).commit();
                 }
-
                 Toast.makeText(MainActivity.this, "Three Players", Toast.LENGTH_SHORT).show();
                 break;
+
+            //Creates our Player 4
             case 3:
+                fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
+                if (fragmentFour == null ) {
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
+                            FourPlayerActivity()).commit();
+                }
                 Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
                 break;
 
+            //Default to a toast. Needn't be worried by this, gov'nor!
             default:
                 Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
