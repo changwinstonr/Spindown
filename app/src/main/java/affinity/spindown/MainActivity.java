@@ -1,9 +1,7 @@
 package affinity.spindown;
 
-import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,8 +20,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ArrayAdapter<CharSequence> mSpinnerAdapter;
     FragmentManager fragmentManager;
     Fragment fragment, fragmentTwo, fragmentThree, fragmentFour;
-//    @NOTE: Attempted to hide layout when another fragment is initiated. Another try at
-//    hiding fragments.
+//    @NOTE: Attempted to hide layout when another fragment is initiated. Another try at hiding fragments.
 //    RelativeLayout playerOneLayout;
 
     @Override
@@ -32,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        playerOneLayout = (RelativeLayout) findViewById(R.id.one_player);
+//        DataBindingUtil.setContentView(this, R.layout.activity_main);
     }
 
     //Create our  menu

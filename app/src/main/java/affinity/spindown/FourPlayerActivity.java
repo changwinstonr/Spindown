@@ -147,10 +147,10 @@ public class FourPlayerActivity extends Fragment {
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counterPlayerOne    = 0;
-                counterPlayerTwo    = 0;
-                counterPlayerThree  = 0;
-                counterPlayerFour   = 0;
+                counterPlayerOne    = 20;
+                counterPlayerTwo    = 20;
+                counterPlayerThree  = 20;
+                counterPlayerFour   = 20;
                 String counter      = Integer.toString(counterPlayerOne);
                 String counterTwo   = Integer.toString(counterPlayerTwo);
                 String counterThree = Integer.toString(counterPlayerThree);
