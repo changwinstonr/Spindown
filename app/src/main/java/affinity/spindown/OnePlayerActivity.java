@@ -20,7 +20,7 @@ public class OnePlayerActivity extends Fragment {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             //Edit counter with settings options; for now, default: 0
-            counterPlayer = 0;
+            counterPlayer = 20;
         }
 
         @Override
@@ -29,9 +29,9 @@ public class OnePlayerActivity extends Fragment {
             View view = inflater.inflate(R.layout.activity_one_player, container, false);
 
             getRight = (Button) view.findViewById(R.id.right);
-            getLeft = (Button) view.findViewById(R.id.left);
-            Reset = (Button) view.findViewById(R.id.button);
-            tv = (TextView) view.findViewById(R.id.textView);
+            getLeft  = (Button) view.findViewById(R.id.left);
+            Reset    = (Button) view.findViewById(R.id.button);
+            tv       = (TextView) view.findViewById(R.id.textView);
 
             Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
             getRight.setTypeface(tf);
@@ -62,7 +62,7 @@ public class OnePlayerActivity extends Fragment {
             Reset.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    counterPlayer=0;
+                    counterPlayer=20;
                     String counter = Integer.toString(counterPlayer);
                     tv.setText(counter);
                 }
