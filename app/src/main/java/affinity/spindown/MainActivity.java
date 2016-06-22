@@ -1,7 +1,12 @@
 package affinity.spindown;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -43,17 +48,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        playerOneLayout = (RelativeLayout) findViewById(R.id.one_player);
-
-        //Our fragment manager needs to communicate with settingsfragment and fragments we have
-        // in our mainactivity. Use this.fragmentManager{...}
-        this.fragmentManager.beginTransaction()
-                .replace(android.R.id.content, new SettingsFragment())
-                .commit();
     }
 
     //Create our  menu
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         //Inflate our spinner
         getMenuInflater().inflate(R.menu.menu_layout, menu);
         MenuItem item = menu.findItem(R.id.spinner);
@@ -69,9 +68,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.settings) {
+            Intent settingsActivity = new Intent(getBaseContext(),
+                    CustomPref.class);
+            startActivity(settingsActivity);
+        }
+        return false;
+    }
+
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         fragmentManager = getFragmentManager();
-        switch(position){
+        switch (position) {
             //Creates our Player 1
             case 0:
                 fragment = fragmentManager.findFragmentById(R.id.one_player);
@@ -91,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             //Creates our Player 2
             case 1:
                 fragmentTwo = fragmentManager.findFragmentById(R.id.two_player);
-                if (fragmentTwo == null ) {
+                if (fragmentTwo == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerActivity()).commit();
                 }
 
@@ -101,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             //Creates our Player 3
             case 2:
                 fragmentThree = fragmentManager.findFragmentById(R.id.three_player);
-                if (fragmentThree == null ) {
+                if (fragmentThree == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
                             ThreePlayerActivity()).commit();
                 }
@@ -111,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             //Creates our Player 4
             case 3:
                 fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
-                if (fragmentFour == null ) {
+                if (fragmentFour == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
                             FourPlayerActivity()).commit();
                 }
@@ -129,3 +138,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 }
+//
+//    //Our inner-class for settings pref frag
+//    public static class PrefsFragment extends PreferenceFragment {
+//
+//        @Override
+//        public void onCreate(Bundle savedInstanceState) {
+//
+//            super.onCreate(savedInstanceState);
+//            addPreferencesFromResource(R.xml.preferences);
+//        }
+//    }
+//}
+
+
+

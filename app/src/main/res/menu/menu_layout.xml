@@ -8,4 +8,10 @@
         spindown:actionViewClass="android.widget.Spinner"
         android:title="Players"/>
 
+    <item
+        android:id="@+id/settings"
+        spindown:showAsAction="never"
+        android:title="Settings"
+        />
+
 </menu>

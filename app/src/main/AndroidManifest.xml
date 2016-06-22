@@ -23,6 +23,8 @@
         </activity>
         <activity android:name=".FourPlayerActivity">
         </activity>
+        <activity android:name=".CustomPref">
+        </activity>
     </application>
 
 </manifest>
