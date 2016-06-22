@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -50,6 +51,24 @@ public class CustomPref extends AppCompatActivity {
         //If checkbox is false, make radiogroup invisible
         checkBox = (CheckBox) findViewById(R.id.checkBox1);
         checkBox.setChecked(customSharedPreference.getBoolean("checkBoxPref", false));
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    for (int i = 0; i < radioGroup.getChildCount(); i++) {
+                        radioGroup.getChildAt(i).setEnabled(false);
+                    }
+                    radioGroup.setAlpha(.5f);
+                }
+                else
+                    for (int i = 0; i < radioGroup.getChildCount(); i++) {
+                        radioGroup.getChildAt(i).setEnabled(true);
+                    }
+                radioGroup.setAlpha(1f);
+
+            }
+        });
+
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
         RadioButton radioButton0 = (RadioButton) findViewById(R.id.radio0);
