@@ -23,8 +23,11 @@ public class CustomPref extends AppCompatActivity {
 
     private EditText playerOne, playerTwo, playerThree, playerFour;
     private CheckBox checkBox;
-    private RadioGroup radioGroup;
+    private RadioGroup radioGroup, radioGroupTwo;
+    //Declares buttons for life incrementer
     private RadioButton radioButton0, radioButton1;
+    //Declares buttons for life counter
+    private RadioButton radioButtonTwenty, radioButtonThirty, radioButtonForty;
     private SeekBar seekBar;
 
     @Override
@@ -75,6 +78,24 @@ public class CustomPref extends AppCompatActivity {
             }
         });
 
+        //Get RadioGroup1 button values
+//        int i = customSharedPreference.getInt("customSharedPrefs",-1);
+//        for(;i<1; i++) {
+//            if (i >= 0) {
+//                ((RadioButton) ((RadioGroup) findViewById(R.id.radioGroup1)).getChildAt(i)).setChecked
+//                        (true);
+//            }
+//        }
+//        //Get RadioGroup1 button values
+//        int j = customSharedPreference.getInt("customSharedPrefs",-1);
+//        for(;i<2;j++) {
+//
+//            if (j >= 0) {
+//                ((RadioButton) ((RadioGroup) findViewById(R.id.radioGroup2)).getChildAt(i)).setChecked
+//                        (true);
+//            }
+//        }
+
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
         radioButton0 = (RadioButton) findViewById(R.id.radio0);
@@ -82,6 +103,12 @@ public class CustomPref extends AppCompatActivity {
         radioGroup.check(customSharedPreference.getInt("radioGroupPref",radioButton0.getId()));
         radioGroup.check(customSharedPreference.getInt("radioGroupPref",radioButton1.getId
                 ()));
+
+        radioGroupTwo = (RadioGroup) findViewById(R.id.radioGroup2);
+        radioButtonTwenty = (RadioButton) findViewById(R.id.twenty);
+        radioButtonThirty = (RadioButton) findViewById(R.id.thirty);
+        radioButtonForty = (RadioButton) findViewById(R.id.forty);
+
 
         Button mClose = (Button)findViewById(R.id.close);
         mClose.setOnClickListener(new OnClickListener()
@@ -152,9 +179,10 @@ public class CustomPref extends AppCompatActivity {
         editor.putString("editTextPref4", playerFour.getText().toString());
         editor.putBoolean("checkBoxPref",checkBox.isChecked());
         //Needs some work; save status of either not greyed or greyed out.
-        editor.putBoolean("radioButtonPref", radioButton0.isFocused());
-        editor.putBoolean("radioButtonPref1", radioButton1.isFocused());
-
+        editor.putInt("radioGroupOne", radioGroup.indexOfChild(findViewById(radioGroup
+                .getCheckedRadioButtonId()))).apply();
+        editor.putInt("radioGroupTwo", radioGroupTwo.indexOfChild(findViewById(radioGroupTwo
+                .getCheckedRadioButtonId()))).apply();
         editor.commit();
     }
 }
