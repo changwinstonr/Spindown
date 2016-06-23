@@ -58,25 +58,6 @@ public class CustomPref extends AppCompatActivity {
         playerFour = (EditText) findViewById(R.id.editText3);
         playerFour.setText(customSharedPreference.getString("editTextPref4", ""));
 
-        //If checkbox is false, make radiogroup invisible
-        checkBox = (CheckBox) findViewById(R.id.checkBox1);
-        checkBox.setChecked(customSharedPreference.getBoolean("checkBoxPref", false));
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b == true){
-                    for (int i = 0; i < radioGroup.getChildCount(); i++) {
-                    radioGroup.getChildAt(i).setEnabled(true);
-                }
-                    radioGroup.setAlpha(0.5f);
-                }
-                else
-                    for (int i = 0; i < radioGroup.getChildCount(); i++) {
-                    radioGroup.getChildAt(i).setEnabled(false);
-                }
-                    radioGroup.setAlpha(1f);
-            }
-        });
 
         //Get RadioGroup1 button values
 //        int i = customSharedPreference.getInt("customSharedPrefs",-1);
@@ -97,17 +78,53 @@ public class CustomPref extends AppCompatActivity {
 //        }
 
 
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
         radioButton0 = (RadioButton) findViewById(R.id.radio0);
         radioButton1 = (RadioButton) findViewById(R.id.radio1);
-        radioGroup.check(customSharedPreference.getInt("radioGroupPref",radioButton0.getId()));
-        radioGroup.check(customSharedPreference.getInt("radioGroupPref",radioButton1.getId
-                ()));
 
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
         radioGroupTwo = (RadioGroup) findViewById(R.id.radioGroup2);
+
         radioButtonTwenty = (RadioButton) findViewById(R.id.twenty);
         radioButtonThirty = (RadioButton) findViewById(R.id.thirty);
         radioButtonForty = (RadioButton) findViewById(R.id.forty);
+
+        radioButtonTwenty.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                int counterPlayerOne    = 20;
+                int counterPlayerTwo    = 20;
+                int counterPlayerThree  = 20;
+                int counterPlayerFour   = 20;
+            }
+        });
+
+        //If checkbox is false, make radiogroup invisible
+        checkBox = (CheckBox) findViewById(R.id.checkBox1);
+        checkBox.setChecked(customSharedPreference.getBoolean("checkBoxPref", false));
+        //For pref. - Needs to check if checkbox is not checked, if it isn't, it won't save
+        // state; hence this if check
+        if(!checkBox.isChecked()){
+            for(int i = 0; i < radioGroup.getChildCount(); i++){
+                (radioGroup.getChildAt(i)).setEnabled(false);
+            }}
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    for (int i = 0; i < radioGroup.getChildCount(); i++) {
+                        radioGroup.getChildAt(i).setEnabled(true);
+                    }
+
+                }
+                else if(b == false) {
+                    for (int i = 0; i < radioGroup.getChildCount(); i++) {
+                        radioGroup.getChildAt(i).setEnabled(false);
+                    }
+                    radioGroup.setAlpha(1f);
+                }
+            }
+        });
 
 
         Button mClose = (Button)findViewById(R.id.close);

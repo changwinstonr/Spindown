@@ -4,10 +4,14 @@ package affinity.spindown;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,11 +22,22 @@ import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    //Declare our variables
+    //Declare global variables
+    public static final int counterPlayerOne    = 20;
+    public static final int counterPlayerTwo    = 20;
+    public static final int counterPlayerThree  = 20;
+    public static final int counterPlayerFour   = 20;
+
+
+    //Declare our local variables
     Spinner mSpinner;
-    ArrayAdapter<CharSequence> mSpinnerAdapter;
+    List<String> mList;
+    ArrayAdapter<String> mSpinnerAdapter;
     FragmentManager fragmentManager;
     Fragment fragment, fragmentTwo, fragmentThree, fragmentFour;
     long mLastPress;
@@ -50,13 +65,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Inflate our spinner
         getMenuInflater().inflate(R.menu.menu_layout, menu);
         MenuItem item = menu.findItem(R.id.spinner);
+        mList = new ArrayList<>();
+        mList.add(Integer.toString(1));
+        mList.add(Integer.toString(2));
+        mList.add(Integer.toString(3));
+        mList.add(Integer.toString(4));
 
         mSpinner = (Spinner) MenuItemCompat.getActionView(item);
-        mSpinnerAdapter = ArrayAdapter.createFromResource(this,
-                R.array.numberPlayer, android.R.layout.simple_spinner_item);
-        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinnerAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, mList);
+        mSpinnerAdapter.setDropDownViewResource(R.layout.spinner_item);
+//        mSpinnerAdapter.getBackground().setColorFilter(Color.parseColor("#00ff00"), PorterDuff.Mode
+//                .DARKEN);
         mSpinner.setBackgroundResource(R.drawable.ic_players_gold_36x);
-//        mSpinner.setBackgroundColor(000);
         mSpinner.setAdapter(mSpinnerAdapter);
         mSpinner.setOnItemSelectedListener(this);
 
@@ -73,24 +93,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         //User selects reset icon
- /*       Reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                counterPlayerOne    = 20;
-                counterPlayerTwo    = 20;
-                counterPlayerThree  = 20;
-                String counter      = Integer.toString(counterPlayerOne);
-                String counterTwo   = Integer.toString(counterPlayerTwo);
-                String counterThree = Integer.toString(counterPlayerThree);
-                tv.setText(counter);
-                tv2.setText(counterTwo);
-                tv3.setText(counterThree);
-            }
-        });*/
+        if(item.getItemId() == R.id.reset){
 
-
-
-
+        }
 
         return false;
     }
@@ -136,14 +141,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
 
             //Creates our Player 4
-            case 3:
-                fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
-                if (fragmentFour == null) {
-                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
-                            FourPlayerActivity()).commit();
-                }
-                Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
-                break;
+//            case 3:
+//                fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
+//                if (fragmentFour == null) {
+//                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
+//                            FourPlayerActivity()).commit();
+//                }
+//                Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
+//                break;
 
             //Default to a toast. Needn't be worried by this, gov'nor!
             default:

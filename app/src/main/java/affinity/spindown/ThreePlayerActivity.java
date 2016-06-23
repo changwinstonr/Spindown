@@ -38,7 +38,6 @@ public class ThreePlayerActivity extends Fragment {
         tv          = (TextView) view.findViewById(R.id.textViewP1);
         tv2         = (TextView) view.findViewById(R.id.textViewP2);
         tv3         = (TextView) view.findViewById(R.id.textViewP3);
-//        Reset       = (Button) view.findViewById(R.id.button);
 
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
         getRightP3.setTypeface(tf);
@@ -113,21 +112,6 @@ public class ThreePlayerActivity extends Fragment {
             }
         });
 
-        //Reset player 1 and 2 and 3 life
-/*        Reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                counterPlayerOne    = 20;
-                counterPlayerTwo    = 20;
-                counterPlayerThree  = 20;
-                String counter      = Integer.toString(counterPlayerOne);
-                String counterTwo   = Integer.toString(counterPlayerTwo);
-                String counterThree = Integer.toString(counterPlayerThree);
-                tv.setText(counter);
-                tv2.setText(counterTwo);
-                tv3.setText(counterThree);
-            }
-        });*/
 
         return view;
     }
