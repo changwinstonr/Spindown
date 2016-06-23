@@ -44,7 +44,7 @@ public class FourPlayerActivity extends Fragment {
         tv2         = (TextView) view.findViewById(R.id.textViewP2);
         tv3         = (TextView) view.findViewById(R.id.textViewP3);
         tv4         = (TextView) view.findViewById(R.id.textViewP4);
-        Reset       = (Button) view.findViewById(R.id.button);
+//        Reset       = (Button) view.findViewById(R.id.button);
 
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
         getRightP4.setTypeface(tf);
@@ -144,7 +144,7 @@ public class FourPlayerActivity extends Fragment {
         });
 
         //Reset player 1 and 2 and 3 and 4 life
-        Reset.setOnClickListener(new View.OnClickListener() {
+/*        Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counterPlayerOne    = 20;
@@ -160,7 +160,7 @@ public class FourPlayerActivity extends Fragment {
                 tv3.setText(counterThree);
                 tv4.setText(counterFour);
             }
-        });
+        });*/
 
         return view;
     }

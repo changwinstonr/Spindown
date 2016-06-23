@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/one_player"
@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="40dp"
         android:layout_height="33dp"
-        android:hint="[20]"
+        android:hint="@string/life_counter_hint"
         android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -23,42 +23,49 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bkgd_rounded_p1"/>
+
+    <!-- android:background="#da5632"-->
+
     <Button
         android:layout_height="60dp"
         android:layout_width="110dp"
         android:id="@+id/left"
-        android:text="-"
+        android:text="@string/btn_left_decrement"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
-        android:background="#da5632"
         android:layout_marginTop="48dp"
         android:layout_below="@+id/textView"
         android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"/>
+        android:layout_toEndOf="@+id/textView"
+        android:background="#20000000"
+        android:layout_gravity="left|center_vertical" />
 
     <Button
         android:layout_height="60dp"
         android:layout_width="110dp"
         android:id="@+id/right"
-        android:text="+"
+        android:text="@string/btn_right_increment"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:background="#da5632"
-        android:layout_alignTop="@+id/left"
-        android:layout_toRightOf="@+id/left"
-        android:layout_toEndOf="@+id/left"/>
+        android:background="#20000000"
+        android:layout_gravity="right|center_vertical" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset"
-        android:id="@+id/button"
-        android:layout_below="@+id/left"
-        android:layout_alignRight="@+id/right"
-        android:layout_alignEnd="@+id/right"
-        android:layout_marginRight="43dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginTop="50dp"/>
+    <!--  <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Reset"
+          android:id="@+id/button"
+          android:layout_below="@+id/left"
+          android:layout_alignRight="@+id/right"
+          android:layout_alignEnd="@+id/right"
+          android:layout_marginRight="43dp"
+          android:layout_marginEnd="43dp"
+          android:layout_marginTop="50dp"/>-->
 
-</RelativeLayout>
+</FrameLayout>

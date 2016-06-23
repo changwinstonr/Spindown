@@ -35,7 +35,7 @@ public class TwoPlayerActivity extends Fragment {
         getLeftP1   = (Button) view.findViewById(R.id.leftP1);
         tv          = (TextView) view.findViewById(R.id.textViewP1);
         tv2         = (TextView) view.findViewById(R.id.textViewP2);
-        Reset       = (Button) view.findViewById(R.id.button);
+//        Reset       = (Button) view.findViewById(R.id.button);
 
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
         getRightP2.setTypeface(tf);
@@ -87,7 +87,7 @@ public class TwoPlayerActivity extends Fragment {
         });
 
         //Reset player 1 and 2 life
-        Reset.setOnClickListener(new View.OnClickListener() {
+/*        Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counterPlayerOne    = 20;
@@ -97,7 +97,7 @@ public class TwoPlayerActivity extends Fragment {
                 tv.setText(counter);
                 tv2.setText(counterTwo);
             }
-        });
+        });*/
 
         return view;
     }

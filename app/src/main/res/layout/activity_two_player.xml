@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="40dp"
         android:layout_height="33dp"
-        android:hint="[20]"
+        android:hint="@string/life_counter_hint"
         android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -31,7 +31,7 @@
         android:layout_height="33dp"
         android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
-        android:hint="[20]"
+        android:hint="@string/life_counter_hint"
         android:textSize="20sp"
         android:id="@+id/textViewP2"
         android:layout_below="@+id/leftP1"
@@ -44,7 +44,7 @@
         android:layout_height="60dp"
         android:layout_width="110dp"
         android:id="@+id/leftP1"
-        android:text="-"
+        android:text="@string/btn_left_decrement"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
@@ -57,7 +57,7 @@
         android:layout_height="60dp"
         android:layout_width="110dp"
         android:id="@+id/rightP1"
-        android:text="+"
+        android:text="@string/btn_right_increment"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:background="#da5632"
@@ -69,7 +69,7 @@
         android:layout_height="60dp"
         android:layout_width="110dp"
         android:id="@+id/leftP2"
-        android:text="-"
+        android:text="@string/btn_left_decrement"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
@@ -83,7 +83,7 @@
         android:layout_height="60dp"
         android:layout_width="110dp"
         android:id="@+id/rightP2"
-        android:text="+"
+        android:text="@string/btn_right_increment"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:background="#237b9e"
@@ -91,7 +91,7 @@
         android:layout_toRightOf="@+id/leftP2"
         android:layout_toEndOf="@+id/leftP2"/>
 
-    <Button
+<!--    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset"
@@ -99,7 +99,7 @@
         android:layout_below="@+id/leftP2"
         android:layout_toRightOf="@+id/leftP2"
         android:layout_toEndOf="@+id/leftP2"
-        android:layout_marginTop="54dp"/>
+        android:layout_marginTop="54dp"/>-->
 
 
 </RelativeLayout>

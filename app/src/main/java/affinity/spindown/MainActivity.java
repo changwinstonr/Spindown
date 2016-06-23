@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner mSpinner;
     ArrayAdapter<CharSequence> mSpinnerAdapter;
     FragmentManager fragmentManager;
-    Fragment fragment, fragmentTwo, fragmentThree, fragmentFour;
+    Fragment fragment, fragmentTwo, fragmentThree, fragmentFour, diceRoll;
 //    @NOTE: Attempted to hide layout when another fragment is initiated. Another try at hiding fragments.
 //    RelativeLayout playerOneLayout;
 
@@ -72,6 +72,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         //User selects reset icon
+ /*       Reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counterPlayerOne    = 20;
+                counterPlayerTwo    = 20;
+                counterPlayerThree  = 20;
+                String counter      = Integer.toString(counterPlayerOne);
+                String counterTwo   = Integer.toString(counterPlayerTwo);
+                String counterThree = Integer.toString(counterPlayerThree);
+                tv.setText(counter);
+                tv2.setText(counterTwo);
+                tv3.setText(counterThree);
+            }
+        });*/
 
 
 
@@ -134,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             default:
                 Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
         }
+//        diceRoll = fragmentManager.findFragmentById(R.id.fragment_dice)
     }
 
     @Override

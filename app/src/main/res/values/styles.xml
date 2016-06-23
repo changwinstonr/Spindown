@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorBackground</item>
-        <item name="android:background">@drawable/background_toolbar_gradient</item>
+        <item name="android:background">@drawable/background_gradient</item>
         <!--<item name="windowActionBar">false</item>-->
     </style>
 
