@@ -26,6 +26,12 @@
     <string name="summary_parent_preference">summ parent pref</string>
     <string name="title_child_preference">title child pref</string>
     <string name="summary_child_preference">summ child pref</string>
+    <string name="playerOne">Player One</string>
+    <string name="longPress">Long-Click Inc/Dec</string>
+    <string name="brightness">Brightness</string>
+    <string name="playerTwo">Player Two</string>
+    <string name="playerThree">Player Three</string>
+    <string name="playerFour">Player Four</string>
 </resources>
 
 
