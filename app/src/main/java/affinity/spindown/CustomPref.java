@@ -41,7 +41,6 @@ public class CustomPref extends AppCompatActivity {
         //Prevent keyboard from automatically opening when activity is started.
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-
         //PlayerOne
         playerOne = (EditText) findViewById(R.id.editText1);
         playerOne.setText(customSharedPreference.getString("editTextPref1", ""));
@@ -77,7 +76,6 @@ public class CustomPref extends AppCompatActivity {
 //            }
 //        }
 
-
         radioButton0 = (RadioButton) findViewById(R.id.radio0);
         radioButton1 = (RadioButton) findViewById(R.id.radio1);
 
@@ -87,6 +85,18 @@ public class CustomPref extends AppCompatActivity {
         radioButtonTwenty = (RadioButton) findViewById(R.id.twenty);
         radioButtonThirty = (RadioButton) findViewById(R.id.thirty);
         radioButtonForty = (RadioButton) findViewById(R.id.forty);
+
+        boolean rb0 = customSharedPreference.getBoolean("radio0", true);
+        boolean rb1 = customSharedPreference.getBoolean("radio1", true);
+        boolean rbTwenty= customSharedPreference.getBoolean("radioButtonTwenty", true);
+        boolean rbThirty = customSharedPreference.getBoolean("radioButtonThirty", true);
+        boolean rbForty = customSharedPreference.getBoolean("radioButtonForty", true);
+
+        radioButton0.setActivated(rb0);
+        radioButton1.setActivated(rb1);
+        radioButtonTwenty.setActivated(rbTwenty);
+        radioButtonThirty.setActivated(rbThirty);
+        radioButtonForty.setActivated(rbForty);
 
         radioButtonTwenty.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -196,10 +206,11 @@ public class CustomPref extends AppCompatActivity {
         editor.putString("editTextPref4", playerFour.getText().toString());
         editor.putBoolean("checkBoxPref",checkBox.isChecked());
         //Needs some work; save status of either not greyed or greyed out.
-        editor.putInt("radioGroupOne", radioGroup.indexOfChild(findViewById(radioGroup
-                .getCheckedRadioButtonId()))).apply();
-        editor.putInt("radioGroupTwo", radioGroupTwo.indexOfChild(findViewById(radioGroupTwo
-                .getCheckedRadioButtonId()))).apply();
+        editor.putBoolean("radioButton0" , radioButton0.isChecked());
+        editor.putBoolean("radioButton1" , radioButton1.isChecked());
+        editor.putBoolean("radioButtonTwenty" , radioButtonTwenty.isChecked());
+        editor.putBoolean("radioButtonThirty" , radioButtonThirty.isChecked());
+        editor.putBoolean("radioButtonForty" , radioButtonForty.isChecked());
         editor.commit();
     }
 }
