@@ -3,11 +3,13 @@ package affinity.spindown;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -21,7 +23,11 @@ public class CustomPref extends AppCompatActivity {
 
     private EditText playerOne, playerTwo, playerThree, playerFour;
     private CheckBox checkBox;
-    private RadioGroup radioGroup;
+    private RadioGroup radioGroup, radioGroupTwo;
+    //Declares buttons for life incrementer
+    private RadioButton radioButton0, radioButton1;
+    //Declares buttons for life counter
+    private RadioButton radioButtonTwenty, radioButtonThirty, radioButtonForty;
     private SeekBar seekBar;
 
     @Override
@@ -32,21 +38,25 @@ public class CustomPref extends AppCompatActivity {
         SharedPreferences customSharedPreference = getSharedPreferences("customSharedPrefs",
                 Activity.MODE_PRIVATE);
 
+        //Prevent keyboard from automatically opening when activity is started.
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+
         //PlayerOne
         playerOne = (EditText) findViewById(R.id.editText1);
-        playerOne.setText(customSharedPreference.getString("editTextPref", ""));
+        playerOne.setText(customSharedPreference.getString("editTextPref1", ""));
 
         //PlayerTwo
         playerTwo = (EditText) findViewById(R.id.editText);
-        playerTwo.setText(customSharedPreference.getString("editTextPref", ""));
+        playerTwo.setText(customSharedPreference.getString("editTextPref2", ""));
 
         //PlayerThree
         playerThree = (EditText) findViewById(R.id.editText2);
-        playerThree.setText(customSharedPreference.getString("editTextPref", ""));
+        playerThree.setText(customSharedPreference.getString("editTextPref3", ""));
 
         //PlayerFour
         playerFour = (EditText) findViewById(R.id.editText3);
-        playerFour.setText(customSharedPreference.getString("editTextPref", ""));
+        playerFour.setText(customSharedPreference.getString("editTextPref4", ""));
 
         //If checkbox is false, make radiogroup invisible
         checkBox = (CheckBox) findViewById(R.id.checkBox1);
@@ -56,26 +66,49 @@ public class CustomPref extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b == true){
                     for (int i = 0; i < radioGroup.getChildCount(); i++) {
-                        radioGroup.getChildAt(i).setEnabled(false);
-                    }
-                    radioGroup.setAlpha(.5f);
+                    radioGroup.getChildAt(i).setEnabled(true);
+                }
+                    radioGroup.setAlpha(0.5f);
                 }
                 else
                     for (int i = 0; i < radioGroup.getChildCount(); i++) {
-                        radioGroup.getChildAt(i).setEnabled(true);
-                    }
-                radioGroup.setAlpha(1f);
-
+                    radioGroup.getChildAt(i).setEnabled(false);
+                }
+                    radioGroup.setAlpha(1f);
             }
         });
 
+        //Get RadioGroup1 button values
+//        int i = customSharedPreference.getInt("customSharedPrefs",-1);
+//        for(;i<1; i++) {
+//            if (i >= 0) {
+//                ((RadioButton) ((RadioGroup) findViewById(R.id.radioGroup1)).getChildAt(i)).setChecked
+//                        (true);
+//            }
+//        }
+//        //Get RadioGroup1 button values
+//        int j = customSharedPreference.getInt("customSharedPrefs",-1);
+//        for(;i<2;j++) {
+//
+//            if (j >= 0) {
+//                ((RadioButton) ((RadioGroup) findViewById(R.id.radioGroup2)).getChildAt(i)).setChecked
+//                        (true);
+//            }
+//        }
+
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
-        RadioButton radioButton0 = (RadioButton) findViewById(R.id.radio0);
-        RadioButton radioButton1 = (RadioButton) findViewById(R.id.radio1);
+        radioButton0 = (RadioButton) findViewById(R.id.radio0);
+        radioButton1 = (RadioButton) findViewById(R.id.radio1);
         radioGroup.check(customSharedPreference.getInt("radioGroupPref",radioButton0.getId()));
         radioGroup.check(customSharedPreference.getInt("radioGroupPref",radioButton1.getId
                 ()));
+
+        radioGroupTwo = (RadioGroup) findViewById(R.id.radioGroup2);
+        radioButtonTwenty = (RadioButton) findViewById(R.id.twenty);
+        radioButtonThirty = (RadioButton) findViewById(R.id.thirty);
+        radioButtonForty = (RadioButton) findViewById(R.id.forty);
+
 
         Button mClose = (Button)findViewById(R.id.close);
         mClose.setOnClickListener(new OnClickListener()
@@ -140,12 +173,16 @@ public class CustomPref extends AppCompatActivity {
         SharedPreferences customSharedPreference = getSharedPreferences("customSharedPrefs",
                 Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = customSharedPreference.edit();
-        editor.putString("editTextPref", playerOne.getText().toString());
+        editor.putString("editTextPref1", playerOne.getText().toString());
+        editor.putString("editTextPref2", playerTwo.getText().toString());
+        editor.putString("editTextPref3", playerThree.getText().toString());
+        editor.putString("editTextPref4", playerFour.getText().toString());
         editor.putBoolean("checkBoxPref",checkBox.isChecked());
-        editor.putInt("radioGroupPref", radioGroup.getCheckedRadioButtonId());
+        //Needs some work; save status of either not greyed or greyed out.
+        editor.putInt("radioGroupOne", radioGroup.indexOfChild(findViewById(radioGroup
+                .getCheckedRadioButtonId()))).apply();
+        editor.putInt("radioGroupTwo", radioGroupTwo.indexOfChild(findViewById(radioGroupTwo
+                .getCheckedRadioButtonId()))).apply();
         editor.commit();
-
-        RadioButton radioButton = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
-        Log.v("Preferences:", "Radio Text: " + radioButton.getText());
     }
 }
