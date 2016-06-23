@@ -37,4 +37,5 @@
     <string name="lifePoints">Life Points</string>
     <string name="thirtyCounter">30</string>
     <string name="fortyCounter">40</string>
+    <string name="player1">Player 1</string>
 </resources>
