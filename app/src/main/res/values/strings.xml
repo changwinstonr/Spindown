@@ -35,6 +35,10 @@
     <string name="btn_right_increment">+</string>
     <string name="btn_left_decrement">-</string>
     <string name="life_counter_hint">[20]</string>
+    <string name="defaultCounter">20 (default)</string>
+    <string name="lifePoints">Life Points</string>
+    <string name="thirtyCounter">30</string>
+    <string name="fortyCounter">40</string>
 </resources>
 
 
