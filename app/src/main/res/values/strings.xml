@@ -32,6 +32,9 @@
     <string name="playerTwo">Player Two</string>
     <string name="playerThree">Player Three</string>
     <string name="playerFour">Player Four</string>
+    <string name="btn_right_increment">+</string>
+    <string name="btn_left_decrement">-</string>
+    <string name="life_counter_hint">[20]</string>
     <string name="defaultCounter">20 (default)</string>
     <string name="lifePoints">Life Points</string>
     <string name="thirtyCounter">30</string>

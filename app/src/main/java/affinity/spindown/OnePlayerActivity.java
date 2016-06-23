@@ -30,8 +30,8 @@ public class OnePlayerActivity extends Fragment {
 
             getRight = (Button) view.findViewById(R.id.right);
             getLeft  = (Button) view.findViewById(R.id.left);
-            Reset    = (Button) view.findViewById(R.id.button);
             tv       = (TextView) view.findViewById(R.id.textView);
+//            Reset    = (Button) view.findViewById(R.id.button);
 
             Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
             getRight.setTypeface(tf);
@@ -59,14 +59,14 @@ public class OnePlayerActivity extends Fragment {
             });
 
             //Reset player 1 life
-            Reset.setOnClickListener(new View.OnClickListener() {
+/*            Reset.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     counterPlayer=20;
                     String counter = Integer.toString(counterPlayer);
                     tv.setText(counter);
                 }
-            });
+            });*/
             return view;
         }
     }

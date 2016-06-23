@@ -6,7 +6,7 @@
         android:id="@+id/reset"
         spindown:showAsAction="always"
         android:title="Reset"
-        android:icon="@drawable/ic_reset_tapped_rotate_gold">
+        android:icon="@drawable/ic_reset_gold">
     </item>
 
     <item

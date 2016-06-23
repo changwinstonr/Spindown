@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ArrayAdapter<CharSequence> mSpinnerAdapter;
     FragmentManager fragmentManager;
     Fragment fragment, fragmentTwo, fragmentThree, fragmentFour;
+    long mLastPress;
 //    @NOTE: Attempted to hide layout when another fragment is initiated. Another try at hiding fragments.
 //    RelativeLayout playerOneLayout;
 
@@ -72,6 +73,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         //User selects reset icon
+ /*       Reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counterPlayerOne    = 20;
+                counterPlayerTwo    = 20;
+                counterPlayerThree  = 20;
+                String counter      = Integer.toString(counterPlayerOne);
+                String counterTwo   = Integer.toString(counterPlayerTwo);
+                String counterThree = Integer.toString(counterPlayerThree);
+                tv.setText(counter);
+                tv2.setText(counterTwo);
+                tv3.setText(counterThree);
+            }
+        });*/
 
 
 
@@ -134,11 +149,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             default:
                 Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
         }
+//        diceRoll = fragmentManager.findFragmentById(R.id.fragment_dice)
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    //Asks user to press BACK twice to exit. Prevents accidental app close on main/frags
+    @Override
+    public void onBackPressed() {
+        long currentTime = System.currentTimeMillis();
+        if(currentTime - mLastPress > 5000){
+            Toast.makeText(getBaseContext(), "Press BACK again to exit.", Toast.LENGTH_SHORT).show();
+            mLastPress = currentTime;
+        }else{
+           super.onBackPressed();
+        }
     }
 }
 
