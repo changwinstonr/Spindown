@@ -77,7 +77,7 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
-        android:background="#da5632"
+        android:background="@drawable/btn_onpress"
         android:layout_below="@+id/textViewP1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
@@ -89,7 +89,7 @@
         android:text="@string/btn_right_increment"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:background="#da5632"
+        android:background="@drawable/btn_onpress"
         android:layout_above="@+id/leftP2"
         android:layout_toRightOf="@+id/leftP1"
         android:layout_toEndOf="@+id/leftP1"/>
@@ -102,7 +102,7 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
-        android:background="#237b9e"
+        android:background="@drawable/btn_onpress"
         android:layout_marginTop="49dp"
         android:layout_below="@+id/leftP1"
         android:layout_alignParentLeft="true"
@@ -115,7 +115,7 @@
         android:text="@string/btn_right_increment"
         android:textSize="30sp"
         android:textColor="#FFFFFF"
-        android:background="#237b9e"
+        android:background="@drawable/btn_onpress"
         android:layout_alignTop="@+id/leftP2"
         android:layout_toRightOf="@+id/leftP2"
         android:layout_toEndOf="@+id/leftP2"/>
@@ -128,7 +128,7 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
-        android:background="#ecde81"
+        android:background="@drawable/btn_onpress"
         android:layout_below="@+id/textViewP3"
         android:layout_toLeftOf="@+id/rightP3"
         android:layout_toStartOf="@+id/rightP3"/>
@@ -140,7 +140,7 @@
         android:text="@string/btn_right_increment"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:background="#ecde81"
+        android:background="@drawable/btn_onpress"
         android:layout_below="@+id/textViewP3"
         android:layout_centerHorizontal="true"/>
 
@@ -152,7 +152,7 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
-        android:background="#ff86eb"
+        android:background="@drawable/btn_onpress"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/leftP3"
         android:layout_alignStart="@+id/leftP3"
@@ -165,7 +165,7 @@
         android:text="@string/btn_right_increment"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:background="#ff86eb"
+        android:background="@drawable/btn_onpress"
         android:layout_alignTop="@+id/leftP4"
         android:layout_toRightOf="@+id/leftP4"
         android:layout_toEndOf="@+id/leftP4"/>

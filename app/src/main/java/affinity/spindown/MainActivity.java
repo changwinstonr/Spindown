@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner mSpinner;
     ArrayAdapter<CharSequence> mSpinnerAdapter;
     FragmentManager fragmentManager;
-    Fragment fragment, fragmentTwo, fragmentThree, fragmentFour, diceRoll;
+    Fragment fragment, fragmentTwo, fragmentThree, fragmentFour;
+    long mLastPress;
 //    @NOTE: Attempted to hide layout when another fragment is initiated. Another try at hiding fragments.
 //    RelativeLayout playerOneLayout;
 
@@ -154,6 +155,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    //Asks user to press BACK twice to exit. Prevents accidental app close on main/frags
+    @Override
+    public void onBackPressed() {
+        long currentTime = System.currentTimeMillis();
+        if(currentTime - mLastPress > 5000){
+            Toast.makeText(getBaseContext(), "Press BACK again to exit.", Toast.LENGTH_SHORT).show();
+            mLastPress = currentTime;
+        }else{
+           super.onBackPressed();
+        }
     }
 }
 

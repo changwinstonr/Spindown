@@ -15,7 +15,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bkgd_rounded_p1"/>
+        android:background="@drawable/bkgd_rounded_p1"
+        android:adjustViewBounds="true"/>
 
     <TextView
         android:layout_width="130dp"
@@ -29,7 +30,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <!-- android:background="#da5632"-->
+    <!-- android:background="@drawable/btn_onpress"-->
 
     <Button
         android:layout_height="match_parent"
