@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:id="@+id/customPref">
     <TextView
         android:layout_width="wrap_content"
@@ -21,64 +25,6 @@
         android:layout_below="@+id/seekBrightness"
         android:layout_centerHorizontal="true"/>
 
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/longPress"
-        android:checked="false"
-        android:layout_above="@+id/textView4"
-        android:layout_alignRight="@+id/save"
-        android:layout_alignEnd="@+id/save"/>
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:checkedButton="@+id/value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/save"
-        android:layout_toLeftOf="@+id/save"
-        android:layout_alignLeft="@+id/checkBox1"
-        android:layout_alignStart="@+id/checkBox1">
-        <RadioButton
-            android:id="@+id/radio0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="+/- 1"
-            android:layout_above="@+id/radio1"
-            android:layout_alignLeft="@+id/checkbox"
-            android:layout_alignStart="@+id/checkbox"/>
-        <RadioButton
-            android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+/- 5"
-            android:checked="false"
-            android:layout_above="@+id/save"
-            android:layout_alignLeft="@+id/radio0"
-            android:layout_alignStart="@+id/radio0"/>
-
-
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/save" style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"/>
-
-    <Button
-        android:id="@+id/close" style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/checkBox1"
-        android:layout_toEndOf="@+id/checkBox1"/>
 
     <TextView
         android:id="@+id/textView"
@@ -103,26 +49,6 @@
         <requestFocus />
     </EditText>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Counter Values"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_above="@+id/checkBox1"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"/>
-
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Counter Increment"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_above="@+id/radioGroup1"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -187,4 +113,87 @@
         android:layout_alignLeft="@+id/editText2"
         android:layout_alignStart="@+id/editText2"/>
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Counter Values"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/checkBox1"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"/>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/longPress"
+        android:checked="false"
+        android:layout_above="@+id/textView4"
+        android:layout_alignRight="@+id/save"
+        android:layout_alignEnd="@+id/save"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Counter Increment"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/radioGroup1"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:checkedButton="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/save"
+        android:layout_toLeftOf="@+id/save"
+        android:layout_alignLeft="@+id/checkBox1"
+        android:layout_alignStart="@+id/checkBox1">
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="+/- 1"
+            android:layout_above="@+id/radio1"
+            android:layout_alignLeft="@+id/checkbox"
+            android:layout_alignStart="@+id/checkbox"/>
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+/- 5"
+            android:checked="false"
+            android:layout_above="@+id/save"
+            android:layout_alignLeft="@+id/radio0"
+            android:layout_alignStart="@+id/radio0"/>
+
+
+    </RadioGroup>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/save" style="?android:attr/buttonStyleSmall"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="67dp"/>
+
+    <Button
+        android:id="@+id/close" style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/save"/>
 </RelativeLayout>
+
+</LinearLayout>
+</ScrollView>
