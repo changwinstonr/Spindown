@@ -15,12 +15,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    //Declare our variables
+    //Declare our local variables
     Spinner mSpinner;
-    ArrayAdapter<CharSequence> mSpinnerAdapter;
+    List<String> mList;
+    ArrayAdapter<String> mSpinnerAdapter;
     FragmentManager fragmentManager;
     Fragment fragment, fragmentTwo, fragmentThree, fragmentFour;
     long mLastPress;
@@ -48,13 +52,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Inflate our spinner
         getMenuInflater().inflate(R.menu.menu_layout, menu);
         MenuItem item = menu.findItem(R.id.spinner);
+        mList = new ArrayList<>();
+        mList.add(Integer.toString(1));
+        mList.add(Integer.toString(2));
+        mList.add(Integer.toString(3));
+        mList.add(Integer.toString(4));
 
         mSpinner = (Spinner) MenuItemCompat.getActionView(item);
-        mSpinnerAdapter = ArrayAdapter.createFromResource(this,
-                R.array.numberPlayer, android.R.layout.simple_spinner_item);
-        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinnerAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, mList);
+        mSpinnerAdapter.setDropDownViewResource(R.layout.spinner_item);
+//        mSpinnerAdapter.getBackground().setColorFilter(Color.parseColor("#00ff00"), PorterDuff.Mode
+//                .DARKEN);
         mSpinner.setBackgroundResource(R.drawable.ic_players_gold_36x);
-//        mSpinner.setBackgroundColor(000);
         mSpinner.setAdapter(mSpinnerAdapter);
         mSpinner.setOnItemSelectedListener(this);
 
@@ -69,27 +78,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     CustomPref.class);
             startActivity(settingsActivity);
         }
-
-        //User selects reset icon
- /*       Reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                counterPlayerOne    = 20;
-                counterPlayerTwo    = 20;
-                counterPlayerThree  = 20;
-                String counter      = Integer.toString(counterPlayerOne);
-                String counterTwo   = Integer.toString(counterPlayerTwo);
-                String counterThree = Integer.toString(counterPlayerThree);
-                tv.setText(counter);
-                tv2.setText(counterTwo);
-                tv3.setText(counterThree);
-            }
-        });*/
-
-
-
-
-
         return false;
     }
 
@@ -101,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 0:
                 fragment = fragmentManager.findFragmentById(R.id.one_player);
                 if (fragment == null) {
-                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerActivity()).commit();
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerFragment()).commit();
                 }
 //                @NOTE: Manage this when you can! Try one at hiding fragments/visibility
 //                else if((fragmentManager.findFragmentById(R.id.one_player) !=
@@ -117,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 1:
                 fragmentTwo = fragmentManager.findFragmentById(R.id.two_player);
                 if (fragmentTwo == null) {
-                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerActivity()).commit();
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerFragment()).commit();
                 }
 
                 Toast.makeText(MainActivity.this, "Two Players", Toast.LENGTH_SHORT).show();
@@ -128,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 fragmentThree = fragmentManager.findFragmentById(R.id.three_player);
                 if (fragmentThree == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
-                            ThreePlayerActivity()).commit();
+                            ThreePlayerFragment()).commit();
                 }
                 Toast.makeText(MainActivity.this, "Three Players", Toast.LENGTH_SHORT).show();
                 break;
@@ -138,16 +126,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
                 if (fragmentFour == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
-                            FourPlayerActivity()).commit();
+                            FourPlayerFragment()).commit();
                 }
                 Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
                 break;
 
             //Default to a toast. Needn't be worried by this, gov'nor!
-            default:
-                Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
+//            default:
+//                Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
+//                break;
         }
-//        diceRoll = fragmentManager.findFragmentById(R.id.fragment_dice)
     }
 
     @Override

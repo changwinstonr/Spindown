@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class FourPlayerActivity extends Fragment {
+public class FourPlayerFragment extends Fragment {
 
 
     Button getRightP4, getLeftP4, getRightP3, getLeftP3, getRightP2, getLeftP2, getRightP1,
-            getLeftP1, Reset;
+            getLeftP1;
     TextView tv, tv2, tv3, tv4;
     int counterPlayerOne, counterPlayerTwo, counterPlayerThree, counterPlayerFour;
 
@@ -21,10 +21,7 @@ public class FourPlayerActivity extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Edit counter with settings options; for now, default: 0
-        counterPlayerOne    = 20;
-        counterPlayerTwo    = 20;
-        counterPlayerThree  = 20;
-        counterPlayerFour   = 20;
+
     }
 
     @Override
@@ -44,7 +41,6 @@ public class FourPlayerActivity extends Fragment {
         tv2         = (TextView) view.findViewById(R.id.textViewP2);
         tv3         = (TextView) view.findViewById(R.id.textViewP3);
         tv4         = (TextView) view.findViewById(R.id.textViewP4);
-//        Reset       = (Button) view.findViewById(R.id.button);
 
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
         getRightP4.setTypeface(tf);
@@ -143,24 +139,6 @@ public class FourPlayerActivity extends Fragment {
             }
         });
 
-        //Reset player 1 and 2 and 3 and 4 life
-/*        Reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                counterPlayerOne    = 20;
-                counterPlayerTwo    = 20;
-                counterPlayerThree  = 20;
-                counterPlayerFour   = 20;
-                String counter      = Integer.toString(counterPlayerOne);
-                String counterTwo   = Integer.toString(counterPlayerTwo);
-                String counterThree = Integer.toString(counterPlayerThree);
-                String counterFour  = Integer.toString(counterPlayerFour);
-                tv.setText(counter);
-                tv2.setText(counterTwo);
-                tv3.setText(counterThree);
-                tv4.setText(counterFour);
-            }
-        });*/
 
         return view;
     }
