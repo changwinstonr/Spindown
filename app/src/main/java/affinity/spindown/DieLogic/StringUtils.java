@@ -6,9 +6,7 @@ import java.util.ArrayList;
  * Created by 4th3ist on 6/24/2016.
  */
 public class StringUtils {
-    /**
-     * finds the first pair of ( ) which doesn't contain any more ( ) pairs
-     */
+
     public static String findSub(String string){
         String sub = null;
         if(string.contains("(")&&string.contains(")")){
@@ -27,10 +25,8 @@ public class StringUtils {
         }
         return sub;
     }
-    /**
-     * separates the string into number and not-number segments.
-     */
-    public static String[] separate(String string){
+
+    /*public static String[] separate(String string){
         ArrayList<String> strings = new ArrayList<String>();
         char[] chars = string.toCharArray();
         boolean workingOnNumber;
@@ -62,7 +58,7 @@ public class StringUtils {
             strs[a]=(String)objs[a];
         }
         return strs;
-    }
+    }*/
     private static boolean isNumber(String str){
         if(Character.isDigit(str.toCharArray()[0])){
             return true;
@@ -70,9 +66,7 @@ public class StringUtils {
             return false;
         }
     }
-    /**
-     * does the multiplication as noted by the '*' sign.
-     */
+
     public static String[] doMultiplcation(String[] strings){
         ArrayList<String> strs = new ArrayList<String>();
         boolean isNumber;
@@ -106,9 +100,7 @@ public class StringUtils {
         }
         return strsA;
     }
-    /**
-     * does the division as noted by the '/' sign.
-     */
+
     public static String[] doDivide(String[] strings){
         ArrayList<String> strs = new ArrayList<String>();
         boolean isNumber;
@@ -142,9 +134,7 @@ public class StringUtils {
         }
         return strsA;
     }
-    /**
-     * does the addition as noted by the '+' sign.
-     */
+
     public static String[] doAddition(String[] strings){
         ArrayList<String> strs = new ArrayList<String>();
         boolean isNumber;
@@ -178,9 +168,7 @@ public class StringUtils {
         }
         return strsA;
     }
-    /**
-     * does the subtraction as noted by the '-' sign.
-     */
+
     public static String[] doSubtraction(String[] strings){
         ArrayList<String> strs = new ArrayList<String>();
         boolean isNumber;
@@ -300,7 +288,4 @@ public class StringUtils {
         }
         return strsA;
     }
-
-
-
 }

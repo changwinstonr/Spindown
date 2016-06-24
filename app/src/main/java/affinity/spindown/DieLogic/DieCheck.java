@@ -1,20 +1,16 @@
 package affinity.spindown.DieLogic;
 
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.EditText;
-
-import affinity.spindown.R;
-
 /**
  * Created by 4th3ist on 6/24/2016.
  */
-public class DieCheck extends AppCompatActivity{
+/*public class DieCheck extends AppCompatActivity{
     public void processFormula(View view) {
         EditText editText = (EditText) findViewById(R.id.editTextDie);
-        String formula = editText.getText().toString(); //Input
+        String formula = editText.getText().toString();
+        //User input for now, change to icon click
+        // UPDATE: commented out die/coin completely.
 
-        if (formula.length()==0) { //Check input
+        if (formula.length()==0) {
             return;
         }
         formula.toLowerCase();
@@ -31,7 +27,6 @@ public class DieCheck extends AppCompatActivity{
             diceSize=Integer.parseInt(formula_arr[1], 10);
             diceRoll=DiceRollerShared.rollDice(diceSize);
         }
-        //Display DiceRoll
     }
 
-}
+}*/

@@ -9,6 +9,13 @@
         <item name="android:windowBackground">@color/colorBackground</item>
         <item name="android:background">@drawable/background_gradient</item>
         <!--<item name="windowActionBar">false</item>-->
+        <item name="android:actionButtonStyle">@style/ActionButtonStyle</item>
+    </style>
+
+    <style name="ActionButtonStyle" parent="@android:style/Widget.Holo.Light.ActionButton">
+        <item name="android:minWidth">0dip</item>
+        <item name="android:paddingLeft">50dip</item>
+        <item name="android:paddingRight">50dip</item>
     </style>
 
 </resources>

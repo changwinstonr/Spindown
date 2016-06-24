@@ -9,5 +9,14 @@
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:windowBackground">@color/colorBackground</item>
 
+        <item name="android:actionButtonStyle">@style/ActionButtonStyle</item>
+
     </style>
+
+    <style name="ActionButtonStyle" parent="@android:style/Widget.Holo.Light.ActionButton">
+        <item name="android:minWidth">0dip</item>
+        <item name="android:paddingStart">50dip</item>
+        <item name="android:paddingEnd">50dip</item>
+    </style>
+
 </resources>
