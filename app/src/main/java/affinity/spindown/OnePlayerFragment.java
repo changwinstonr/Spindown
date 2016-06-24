@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,12 +29,12 @@ public class OnePlayerFragment extends Fragment {
 
         Button getRight, getLeft;
         TextView tv;
-
+        String TAG;
+        int counterPlayer;
         Spinner mSpinner;
         List<String> mList;
         ArrayAdapter<String> mSpinnerAdapter;
-
-        int counterPlayer;
+        Callbacks mCallbacks;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -83,16 +84,61 @@ public class OnePlayerFragment extends Fragment {
         //Inflate our spinner; this is a special case because of fragment (needs inflater)
         menu.clear();
         inflater.inflate(R.menu.menu_layout, menu);
-        MenuItem item = menu.findItem(R.id.spinner);
 
+        super.onCreateOptionsMenu(menu, inflater);
+
+        MenuItem item = menu.findItem(R.id.spinner);
+        mList = new ArrayList<>();
+        mList.add(Integer.toString(1));
+        mList.add(Integer.toString(2));
+        mList.add(Integer.toString(3));
+        mList.add(Integer.toString(4));
+
+        mSpinner = (Spinner) MenuItemCompat.getActionView(item);
+        mSpinnerAdapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, mList);
+        mSpinnerAdapter.setDropDownViewResource(R.layout.spinner_item);
+//        mSpinnerAdapter.getBackground().setColorFilter(Color.parseColor("#00ff00"), PorterDuff.Mode
+//                .DARKEN);
+        mSpinner.setBackgroundResource(R.drawable.ic_players_gold_36x);
+        mSpinner.setAdapter(mSpinnerAdapter);
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                mCallbacks.onPlayerSelected(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        Log.d(TAG, "onAttach()");
+        mCallbacks = (Callbacks) activity;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d(TAG, "onDetach()");
+        mCallbacks = null;
+    }
+
+    public interface Callbacks {
+        void onPlayerSelected(int playerPosition);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //User selects settings icon
         if (item.getItemId() == R.id.reset) {
             updateUI();
+            return true;
         }
-        return false;
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
