@@ -1,19 +1,13 @@
 package affinity.spindown;
 
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
-import android.text.Spanned;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -97,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 0:
                 fragment = fragmentManager.findFragmentById(R.id.one_player);
                 if (fragment == null) {
-                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerActivity()).commit();
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerFragment()).commit();
                 }
 //                @NOTE: Manage this when you can! Try one at hiding fragments/visibility
 //                else if((fragmentManager.findFragmentById(R.id.one_player) !=
@@ -113,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 1:
                 fragmentTwo = fragmentManager.findFragmentById(R.id.two_player);
                 if (fragmentTwo == null) {
-                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerActivity()).commit();
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerFragment()).commit();
                 }
 
                 Toast.makeText(MainActivity.this, "Two Players", Toast.LENGTH_SHORT).show();
@@ -124,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 fragmentThree = fragmentManager.findFragmentById(R.id.three_player);
                 if (fragmentThree == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
-                            ThreePlayerActivity()).commit();
+                            ThreePlayerFragment()).commit();
                 }
                 Toast.makeText(MainActivity.this, "Three Players", Toast.LENGTH_SHORT).show();
                 break;
@@ -134,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
                 if (fragmentFour == null) {
                     fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
-                            FourPlayerActivity()).commit();
+                            FourPlayerFragment()).commit();
                 }
                 Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
                 break;

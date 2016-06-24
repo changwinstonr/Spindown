@@ -18,10 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OnePlayerActivity"></activity>
-        <activity android:name=".TwoPlayerActivity"></activity>
-        <activity android:name=".ThreePlayerActivity"></activity>
-        <activity android:name=".FourPlayerActivity"></activity>
+        <activity android:name=".OnePlayerFragment"></activity>
+        <activity android:name=".TwoPlayerFragment"></activity>
+        <activity android:name=".ThreePlayerFragment"></activity>
+        <activity android:name=".FourPlayerFragment"></activity>
         <activity
             android:name=".CustomPref"
             android:label="@string/settings"></activity>

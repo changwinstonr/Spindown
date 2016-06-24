@@ -2,24 +2,37 @@ package affinity.spindown;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class OnePlayerActivity extends Fragment {
+
+public class OnePlayerFragment extends Fragment {
 
         Button getRight, getLeft;
         TextView tv;
+
+        Spinner mSpinner;
+        List<String> mList;
+        ArrayAdapter<String> mSpinnerAdapter;
+
         int counterPlayer;
 
         @Override
@@ -70,6 +83,8 @@ public class OnePlayerActivity extends Fragment {
         //Inflate our spinner; this is a special case because of fragment (needs inflater)
         menu.clear();
         inflater.inflate(R.menu.menu_layout, menu);
+        MenuItem item = menu.findItem(R.id.spinner);
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
