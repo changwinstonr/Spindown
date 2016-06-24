@@ -3,10 +3,8 @@ package affinity.spindown;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
@@ -138,6 +136,18 @@ public class CustomPref extends AppCompatActivity {
             curBrightnessValue = android.provider.Settings.System.getInt(
                     getContentResolver(),
                     android.provider.Settings.System.SCREEN_BRIGHTNESS);
+//          TODO: Tried to compensate for <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission> SecurityException API 23<
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                if (Settings.System.canWrite(context) {
+//                    // Do stuff here
+//                }
+//                else {
+//                    Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
+//                    intent.setData(Uri.parse("package:" + getActivity().getPackageName()));
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
+//                }
+//            }
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }

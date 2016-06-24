@@ -16,8 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import org.jetbrains.annotations.NotNull;
-
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //Declare our variables
@@ -31,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private Toolbar toolbar;
 
-    @NotNull
+    //@NotNull
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        DataBindingUtil.setContentView(this, R.layout.activity_main);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
     }
 

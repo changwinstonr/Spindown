@@ -12,163 +12,194 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="affinity.spindown.FourPlayerActivity">
 
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/background_player_one"
+            android:layout_width="170dp"
+            android:layout_height="260dp"
+            android:background="@drawable/bkgd_rounded_p1"/>
+
+        <ImageView
+            android:id="@+id/background_player_two"
+            android:layout_width="170dp"
+            android:layout_height="260dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/background_player_one"
+            android:background="@drawable/bkgd_rounded_p2"/>
+
+        <ImageView
+            android:id="@+id/background_player_three"
+            android:layout_width="170dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/background_player_one"
+            android:background="@drawable/bkgd_rounded_p3"/>
+
+        <ImageView
+            android:id="@+id/background_player_four"
+            android:layout_width="170dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_below="@id/background_player_two"
+            android:layout_toEndOf="@id/background_player_three"
+            android:background="@drawable/bkgd_rounded_p4"/>
+    </RelativeLayout>
 
     <TextView
-        android:layout_width="33dp"
-        android:layout_height="33dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:hint="@string/life_counter_hint"
-        android:textSize="20sp"
         android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
+        android:textSize="70sp"
+        android:textAlignment="center"
         android:id="@+id/textViewP1"
-        android:layout_marginTop="64dp"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/rightP1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    <TextView
-        android:layout_width="33dp"
-        android:layout_height="33dp"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
-        android:hint="@string/life_counter_hint"
-        android:textSize="20sp"
-        android:id="@+id/textViewP2"
-        android:layout_below="@+id/leftP1"
-        android:layout_toLeftOf="@+id/rightP1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/rightP2"/>
-
-    <TextView
-        android:layout_width="33dp"
-        android:layout_height="33dp"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
-        android:hint="@string/life_counter_hint"
-        android:textSize="20sp"
-        android:id="@+id/textViewP3"
-        android:layout_below="@+id/leftP2"
-        android:layout_alignLeft="@+id/leftP3"
-        android:layout_alignStart="@+id/leftP3"
-        android:layout_alignRight="@+id/leftP2"
-        android:layout_alignEnd="@+id/leftP2"/>
-
-    <TextView
-        android:layout_width="33dp"
-        android:layout_height="33dp"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
-        android:hint="@string/life_counter_hint"
-        android:textSize="20sp"
-        android:id="@+id/textViewP4"
-        android:layout_below="@+id/leftP3"
-        android:layout_alignLeft="@+id/leftP3"
-        android:layout_alignStart="@+id/leftP3"
-        android:layout_toLeftOf="@+id/rightP4"
-        android:layout_toStartOf="@+id/rightP4"/>
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="75dp"
+        android:elevation="5dp"/>
 
     <Button
-        android:layout_height="60dp"
-        android:layout_width="110dp"
-        android:id="@+id/leftP1"
-        android:text="@string/btn_left_decrement"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textAlignment="gravity"
-        android:background="@drawable/btn_onpress"
-        android:layout_below="@+id/textViewP1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    <Button
-        android:layout_height="60dp"
-        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_width="170dp"
         android:id="@+id/rightP1"
         android:text="@string/btn_right_increment"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:background="@drawable/btn_onpress"
-        android:layout_above="@+id/leftP2"
-        android:layout_toRightOf="@+id/leftP1"
-        android:layout_toEndOf="@+id/leftP1"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"/>
 
     <Button
-        android:layout_height="60dp"
-        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_width="170dp"
+        android:id="@+id/leftP1"
+        android:text="@string/btn_left_decrement"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/btn_onpress"
+        android:layout_below="@+id/rightP1"
+        android:layout_marginStart="2dp"/>
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:hint="@string/life_counter_hint"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        android:id="@+id/textViewP2"
+        android:layout_toEndOf="@+id/textViewP1"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="75dp"
+        android:elevation="5dp"/>
+
+    <Button
+        android:layout_height="130dp"
+        android:layout_width="170dp"
+        android:id="@+id/rightP2"
+        android:text="@string/btn_right_increment"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/rightP1"
+        android:background="@drawable/btn_onpress"/>
+
+    <Button
+        android:layout_height="130dp"
+        android:layout_width="170dp"
         android:id="@+id/leftP2"
         android:text="@string/btn_left_decrement"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
         android:background="@drawable/btn_onpress"
-        android:layout_marginTop="49dp"
-        android:layout_below="@+id/leftP1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_marginStart="12dp"
+        android:layout_below="@+id/rightP2"
+        android:layout_toEndOf="@+id/leftP1"/>
 
-    <Button
-        android:layout_height="60dp"
-        android:layout_width="110dp"
-        android:id="@+id/rightP2"
-        android:text="@string/btn_right_increment"
-        android:textSize="30sp"
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:hint="@string/life_counter_hint"
+        android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
-        android:background="@drawable/btn_onpress"
-        android:layout_alignTop="@+id/leftP2"
-        android:layout_toRightOf="@+id/leftP2"
-        android:layout_toEndOf="@+id/leftP2"/>
+        android:textSize="70sp"
+        android:textAlignment="center"
+        android:id="@+id/textViewP3"
+        android:layout_below="@+id/textViewP1"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="195dp"
+        android:elevation="5dp"/>
 
     <Button
-        android:layout_height="60dp"
-        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_width="170dp"
+        android:id="@+id/rightP3"
+        android:text="@string/btn_right_increment"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/btn_onpress"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="2dp"
+        android:layout_below="@+id/leftP1"/>
+
+    <Button
+        android:layout_height="130dp"
+        android:layout_width="170dp"
         android:id="@+id/leftP3"
         android:text="@string/btn_left_decrement"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textAlignment="gravity"
         android:background="@drawable/btn_onpress"
-        android:layout_below="@+id/textViewP3"
-        android:layout_toLeftOf="@+id/rightP3"
-        android:layout_toStartOf="@+id/rightP3"/>
+        android:layout_marginStart="2dp"
+        android:layout_below="@+id/rightP3"/>
 
-    <Button
-        android:layout_height="60dp"
-        android:layout_width="110dp"
-        android:id="@+id/rightP3"
-        android:text="@string/btn_right_increment"
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:hint="@string/life_counter_hint"
+        android:textColorHint="#FFFFFF"
         android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:background="@drawable/btn_onpress"
-        android:layout_below="@+id/textViewP3"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="70sp"
+        android:textAlignment="center"
+        android:id="@+id/textViewP4"
+        android:layout_toEndOf="@+id/textViewP3"
+        android:layout_below="@+id/textViewP2"
+        android:layout_marginTop="195dp"
+        android:layout_marginStart="90dp"
+        android:elevation="5dp"/>
 
     <Button
-        android:layout_height="60dp"
-        android:layout_width="110dp"
-        android:id="@+id/leftP4"
-        android:text="@string/btn_left_decrement"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textAlignment="gravity"
-        android:background="@drawable/btn_onpress"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/leftP3"
-        android:layout_alignStart="@+id/leftP3"
-        android:layout_marginBottom="34dp"/>
-
-    <Button
-        android:layout_height="60dp"
-        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_width="170dp"
         android:id="@+id/rightP4"
         android:text="@string/btn_right_increment"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:background="@drawable/btn_onpress"
-        android:layout_alignTop="@+id/leftP4"
-        android:layout_toRightOf="@+id/leftP4"
-        android:layout_toEndOf="@+id/leftP4"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="12dp"
+        android:layout_below="@id/leftP2"
+        android:layout_toEndOf="@+id/rightP3"/>
+
+    <Button
+        android:layout_height="130dp"
+        android:layout_width="170dp"
+        android:id="@+id/leftP4"
+        android:text="@string/btn_left_decrement"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/btn_onpress"
+        android:layout_marginStart="12dp"
+        android:layout_below="@+id/rightP4"
+        android:layout_toEndOf="@id/leftP3"/>
 
     <!--Reset Button-->
 <!--    <Button

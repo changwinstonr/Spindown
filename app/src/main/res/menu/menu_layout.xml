@@ -29,3 +29,20 @@
         />
 
 </menu>
+
+    <!-- DELME later : abandoned toolbar.xml code : move/del if solved
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/background_gradient">
+    </android.support.v7.widget.Toolbar>-->
+
+    <!--    <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar">
+        </include>-->

@@ -24,7 +24,6 @@
 
         <ImageView
             android:id="@+id/background_player_two"
-            android:layout_below="@+id/background_player_one"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:layout_height="260dp"
@@ -54,7 +53,7 @@
         android:textAlignment="center"
         android:id="@+id/textViewP2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="190dp"
         android:layout_below="@+id/textViewP1"
         android:elevation="5dp"/>
 
@@ -84,9 +83,8 @@
         android:text="@string/btn_left_decrement"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:textAlignment="gravity"
         android:background="@drawable/btn_onpress"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/leftP1"/>
 
     <Button

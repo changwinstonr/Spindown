@@ -2,8 +2,13 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#002699</color>
     <color name="black_alpha_40">#66000000</color>
     <color name="black_alpha_10">#10000000</color>
     <color name="colorBackground">#ffffff</color>
+<!--    <gradient
+        name="background_gradient"
+        android:angle="270"
+        android:endColor="@android:color/transparent"
+        android:startColor="@color/black_alpha_40"/>-->
 </resources>

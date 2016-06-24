@@ -6,7 +6,7 @@ Winston Chang & Aaron Artea
 ##Description
 Spindown started as a life counter Android application for the "Magic the Gathering" TCG (tradable card game).  The Google Play store offers many applications with similar functionality, those that are there are feature heavy, but lacked a great user experience or feature light and weren't free. We aim to satisfy this void... 
 <br>
-<br>...within the allotted time of 1 week.
+<br>...within an allotted time of 1 week.
 
 
 ##Features
@@ -18,13 +18,9 @@ Spindown started as a life counter Android application for the "Magic the Gather
 
 >All Customization (Primary Colors) moved to Stretch. ~W
 
-- Dice & Coin Toss:
-	- Coin & d6
-	- Skips ties
-- API Calls:
-	- Cloudinary API to produce a Daily Random Card generator
-	<br>or
-	- Social Media integration (Posting that a game has started, etc)
+- Dice:
+	-  d6
+
 
 
 ###Wireframe / Mock
@@ -56,13 +52,18 @@ Spindown started as a life counter Android application for the "Magic the Gather
 	- Life Count 
 	- Settings
 	- (EXTREME STRETCH: Photo of Card recognition: Name/Cost/Type/Text/Power & Toughness; where applicable)
-
-	
-- Dice & Coin Toss: 
-	- d4 | d6 - Planechase | d8 | d10 | d12 | d20
 - Counters:
 	- Persistent Poison & (Planeswalker) Loyalty
 - History Log
+
+	
+- Dice & Coin Toss: 
+	- d4 | d6 - Planechase | d8 | d10 | d12 | d20 | Coin Toss
+
+- API Calls:
+	- Cloudinary API to produce a Daily Random Card generator
+	<br>or
+	- Social Media integration (Posting that a game has started, etc)
 - Searchable Rules Database
 	- Alternate: Link that sends to WebView of Wizards' site.
 - Beginner Mode Toggle (List of phases)
