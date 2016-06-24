@@ -95,6 +95,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //User selects reset icon
         if(item.getItemId() == R.id.reset){
 
+
+
+
+
+
         }
 
         return false;

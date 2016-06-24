@@ -78,35 +78,26 @@ public class CustomPref extends AppCompatActivity {
 
         radioButton0 = (RadioButton) findViewById(R.id.radio0);
         radioButton1 = (RadioButton) findViewById(R.id.radio1);
+        radioButtonTwenty = (RadioButton) findViewById(R.id.twenty);
+        radioButtonThirty= (RadioButton) findViewById(R.id.thirty);
+        radioButtonForty = (RadioButton) findViewById(R.id.forty);
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
         radioGroupTwo = (RadioGroup) findViewById(R.id.radioGroup2);
 
-        radioButtonTwenty = (RadioButton) findViewById(R.id.twenty);
-        radioButtonThirty = (RadioButton) findViewById(R.id.thirty);
-        radioButtonForty = (RadioButton) findViewById(R.id.forty);
+        boolean rb0 = customSharedPreference.getBoolean("radioButton0", false);
+        boolean rb1 = customSharedPreference.getBoolean("radioButton1", false);
+        boolean rbTwenty= customSharedPreference.getBoolean("radioButtonTwenty", false);
+        boolean rbThirty = customSharedPreference.getBoolean("radioButtonThirty", false);
+        boolean rbForty = customSharedPreference.getBoolean("radioButtonForty", false);
 
-        boolean rb0 = customSharedPreference.getBoolean("radio0", true);
-        boolean rb1 = customSharedPreference.getBoolean("radio1", true);
-        boolean rbTwenty= customSharedPreference.getBoolean("radioButtonTwenty", true);
-        boolean rbThirty = customSharedPreference.getBoolean("radioButtonThirty", true);
-        boolean rbForty = customSharedPreference.getBoolean("radioButtonForty", true);
 
-        radioButton0.setActivated(rb0);
-        radioButton1.setActivated(rb1);
-        radioButtonTwenty.setActivated(rbTwenty);
-        radioButtonThirty.setActivated(rbThirty);
-        radioButtonForty.setActivated(rbForty);
+        radioButtonTwenty.setChecked(rbTwenty);
+        radioButtonThirty.setChecked(rbThirty);
+        radioButtonForty.setChecked(rbForty);
+        radioButton0.setChecked(rb0);
+        radioButton1.setChecked(rb1);
 
-        radioButtonTwenty.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                int counterPlayerOne    = 20;
-                int counterPlayerTwo    = 20;
-                int counterPlayerThree  = 20;
-                int counterPlayerFour   = 20;
-            }
-        });
 
         //If checkbox is false, make radiogroup invisible
         checkBox = (CheckBox) findViewById(R.id.checkBox1);
@@ -160,16 +151,16 @@ public class CustomPref extends AppCompatActivity {
         seekBar = (SeekBar) findViewById(R.id.seekBar1);
         seekBar.setMax(255);
 
-        float curBrightnessValue = 0;
+        float currentBrightnessVal = 0;
         try {
-            curBrightnessValue = android.provider.Settings.System.getInt(
+            currentBrightnessVal = android.provider.Settings.System.getInt(
                     getContentResolver(),
                     android.provider.Settings.System.SCREEN_BRIGHTNESS);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
 
-        int screen_brightness = (int) curBrightnessValue;
+        int screen_brightness = (int) currentBrightnessVal;
         seekBar.setProgress(screen_brightness);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
