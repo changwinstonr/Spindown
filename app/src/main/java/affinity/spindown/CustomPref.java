@@ -23,7 +23,7 @@ public class CustomPref extends AppCompatActivity {
 
     private EditText playerOne, playerTwo, playerThree, playerFour;
     private CheckBox checkBox;
-    private RadioGroup radioGroup, radioGroupTwo;
+    private RadioGroup radioGroup;
     //Declares buttons for life incrementer
     private RadioButton radioButton0, radioButton1;
     //Declares buttons for life counter
@@ -35,11 +35,55 @@ public class CustomPref extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_pref);
 
-        SharedPreferences customSharedPreference = getSharedPreferences("customSharedPrefs",
-                Activity.MODE_PRIVATE);
-
         //Prevent keyboard from automatically opening when activity is started.
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        loadPreferences();
+        seekBrightness();
+
+        Button mClose = (Button)findViewById(R.id.close);
+        mClose.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                finish();
+            }
+        });
+
+        Button mSave = (Button)findViewById(R.id.save);
+        mSave.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                savePreferences();
+                finish();
+            }
+        });
+
+    }
+
+    private void savePreferences(){
+
+        SharedPreferences customSharedPreference = getSharedPreferences("customSharedPrefs",
+                Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = customSharedPreference.edit();
+        editor.putString("editTextPref1", playerOne.getText().toString());
+        editor.putString("editTextPref2", playerTwo.getText().toString());
+        editor.putString("editTextPref3", playerThree.getText().toString());
+        editor.putString("editTextPref4", playerFour.getText().toString());
+        editor.putBoolean("checkBoxPref",checkBox.isChecked());
+        //Needs some work; save status of either not greyed or greyed out.
+        editor.putBoolean("radioButton0" , radioButton0.isChecked());
+        editor.putBoolean("radioButton1" , radioButton1.isChecked());
+        editor.putBoolean("radioButtonTwenty" , radioButtonTwenty.isChecked());
+        editor.putBoolean("radioButtonThirty" , radioButtonThirty.isChecked());
+        editor.putBoolean("radioButtonForty" , radioButtonForty.isChecked());
+        editor.commit();
+    }
+
+    private void loadPreferences(){
+        SharedPreferences customSharedPreference = getSharedPreferences("customSharedPrefs",
+                Activity.MODE_PRIVATE);
 
         //PlayerOne
         playerOne = (EditText) findViewById(R.id.editText1);
@@ -83,7 +127,6 @@ public class CustomPref extends AppCompatActivity {
         radioButtonForty = (RadioButton) findViewById(R.id.forty);
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
-        radioGroupTwo = (RadioGroup) findViewById(R.id.radioGroup2);
 
         boolean rb0 = customSharedPreference.getBoolean("radioButton0", false);
         boolean rb1 = customSharedPreference.getBoolean("radioButton1", false);
@@ -112,13 +155,13 @@ public class CustomPref extends AppCompatActivity {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b == true){
+                if(b){
                     for (int i = 0; i < radioGroup.getChildCount(); i++) {
                         radioGroup.getChildAt(i).setEnabled(true);
                     }
 
                 }
-                else if(b == false) {
+                else if(!b) {
                     for (int i = 0; i < radioGroup.getChildCount(); i++) {
                         radioGroup.getChildAt(i).setEnabled(false);
                     }
@@ -127,25 +170,9 @@ public class CustomPref extends AppCompatActivity {
             }
         });
 
+    }
 
-        Button mClose = (Button)findViewById(R.id.close);
-        mClose.setOnClickListener(new OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                finish();
-            }
-        });
-
-        Button mSave = (Button)findViewById(R.id.save);
-        mSave.setOnClickListener(new OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                savePreferences();
-                finish();
-            }
-        });
+    private void seekBrightness(){
 
         //Adds brightness functionality to screen
         seekBar = (SeekBar) findViewById(R.id.seekBar1);
@@ -184,24 +211,5 @@ public class CustomPref extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void savePreferences(){
-
-        SharedPreferences customSharedPreference = getSharedPreferences("customSharedPrefs",
-                Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = customSharedPreference.edit();
-        editor.putString("editTextPref1", playerOne.getText().toString());
-        editor.putString("editTextPref2", playerTwo.getText().toString());
-        editor.putString("editTextPref3", playerThree.getText().toString());
-        editor.putString("editTextPref4", playerFour.getText().toString());
-        editor.putBoolean("checkBoxPref",checkBox.isChecked());
-        //Needs some work; save status of either not greyed or greyed out.
-        editor.putBoolean("radioButton0" , radioButton0.isChecked());
-        editor.putBoolean("radioButton1" , radioButton1.isChecked());
-        editor.putBoolean("radioButtonTwenty" , radioButtonTwenty.isChecked());
-        editor.putBoolean("radioButtonThirty" , radioButtonThirty.isChecked());
-        editor.putBoolean("radioButtonForty" , radioButtonForty.isChecked());
-        editor.commit();
     }
 }
