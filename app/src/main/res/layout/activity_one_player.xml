@@ -59,16 +59,5 @@
             android:layout_gravity="end|center_vertical"/>
 
     </LinearLayout>
-    <!--  <Button
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Reset"
-          android:id="@+id/button"
-          android:layout_below="@+id/left"
-          android:layout_alignRight="@+id/right"
-          android:layout_alignEnd="@+id/right"
-          android:layout_marginRight="43dp"
-          android:layout_marginEnd="43dp"
-          android:layout_marginTop="50dp"/>-->
 
 </RelativeLayout>

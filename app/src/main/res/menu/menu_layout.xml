@@ -20,13 +20,14 @@
         spindown:showAsAction="always"
         spindown:actionViewClass="android.widget.Spinner"
         android:title="Players"
-        android:icon="@drawable/ic_players_gold"
+        android:icon="@drawable/ic_players_gold_36x"
         />
 
     <item
         android:id="@+id/settings"
-        spindown:showAsAction="never"
+        spindown:showAsAction="always"
         android:title="Settings"
+        android:icon="@drawable/ic_settings_gold_36x"
         />
 
 </menu>
