@@ -1,9 +1,15 @@
 package affinity.spindown;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -12,7 +18,7 @@ import android.widget.TextView;
 
 public class OnePlayerActivity extends Fragment {
 
-        Button getRight, getLeft, Reset;
+        Button getRight, getLeft;
         TextView tv;
         int counterPlayer;
 
@@ -20,7 +26,7 @@ public class OnePlayerActivity extends Fragment {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             //Edit counter with settings options; for now, default: 0
-            counterPlayer = 20;
+            setHasOptionsMenu(true);
         }
 
         @Override
@@ -59,5 +65,45 @@ public class OnePlayerActivity extends Fragment {
 
             return view;
         }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        //Inflate our spinner; this is a special case because of fragment (needs inflater)
+        menu.clear();
+        inflater.inflate(R.menu.menu_layout, menu);
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //User selects settings icon
+        if (item.getItemId() == R.id.reset) {
+            updateUI();
+        }
+        return false;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateUI();
+     }
+
+    public void updateUI(){
+        SharedPreferences customSharedPreference = getActivity().getSharedPreferences
+                ("customSharedPrefs",
+                        Activity.MODE_PRIVATE);
+
+        if(customSharedPreference.getBoolean("radioButtonTwenty", false)){
+            counterPlayer = 20;
+        }
+        else if(customSharedPreference.getBoolean("radioButtonThirty", false)){
+            counterPlayer = 30;
+        }
+        else if(customSharedPreference.getBoolean("radioButtonForty", false)){
+            counterPlayer = 40;
+        }
+
+        String counter = Integer.toString(counterPlayer);
+        tv.setText(counter);
+    }
+}
+
 

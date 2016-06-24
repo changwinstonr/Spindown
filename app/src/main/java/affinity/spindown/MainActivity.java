@@ -1,9 +1,11 @@
 package affinity.spindown;
 
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -26,13 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
-    //Declare global variables
-    public static final int counterPlayerOne    = 20;
-    public static final int counterPlayerTwo    = 20;
-    public static final int counterPlayerThree  = 20;
-    public static final int counterPlayerFour   = 20;
-
 
     //Declare our local variables
     Spinner mSpinner;
@@ -91,17 +86,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     CustomPref.class);
             startActivity(settingsActivity);
         }
-
-        //User selects reset icon
-        if(item.getItemId() == R.id.reset){
-
-
-
-
-
-
-        }
-
         return false;
     }
 
@@ -146,14 +130,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
 
             //Creates our Player 4
-//            case 3:
-//                fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
-//                if (fragmentFour == null) {
-//                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
-//                            FourPlayerActivity()).commit();
-//                }
-//                Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
-//                break;
+            case 3:
+                fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
+                if (fragmentFour == null) {
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
+                            FourPlayerActivity()).commit();
+                }
+                Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
+                break;
 
             //Default to a toast. Needn't be worried by this, gov'nor!
             default:
