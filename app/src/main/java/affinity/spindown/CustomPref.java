@@ -45,7 +45,7 @@ public class CustomPref extends AppCompatActivity {
         playerOne.setText(customSharedPreference.getString("editTextPref1", ""));
 
         //PlayerTwo
-        playerTwo = (EditText) findViewById(R.id.editText);
+        playerTwo = (EditText) findViewById(R.id.editTextDie);
         playerTwo.setText(customSharedPreference.getString("editTextPref2", ""));
 
         //PlayerThree
