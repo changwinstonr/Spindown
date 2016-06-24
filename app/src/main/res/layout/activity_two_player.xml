@@ -26,92 +26,79 @@
             android:id="@+id/background_player_two"
             android:layout_below="@+id/background_player_one"
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="260dp"
             android:background="@drawable/bkgd_rounded_p2"/>
     </LinearLayout>
 
-        <TextView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:hint="@string/life_counter_hint"
-            android:textColorHint="#FFFFFF"
-            android:textColor="#FFFFFF"
-            android:textSize="70sp"
-            android:textAlignment="center"
-            android:id="@+id/textViewP1"
-            android:layout_marginTop="64dp"
-            android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/rightP1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:hint="@string/life_counter_hint"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        android:id="@+id/textViewP1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:elevation="5dp"/>
 
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="33dp"
-            android:textColorHint="#FFFFFF"
-            android:textColor="#FFFFFF"
-            android:hint="@string/life_counter_hint"
-            android:textSize="20sp"
-            android:id="@+id/textViewP2"
-            android:layout_below="@+id/leftP1"
-            android:layout_toLeftOf="@+id/rightP1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/rightP2"/>
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:hint="@string/life_counter_hint"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        android:id="@+id/textViewP2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="210dp"
+        android:layout_below="@+id/textViewP1"
+        android:elevation="5dp"/>
 
-        <Button
-            android:layout_height="60dp"
-            android:layout_width="110dp"
-            android:id="@+id/leftP2"
-            android:text="@string/btn_left_decrement"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:textAlignment="gravity"
-            android:background="@drawable/btn_onpress"
-            android:layout_marginTop="49dp"
-            android:layout_below="@+id/leftP1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center_vertical" />
+    <Button
+        android:layout_height="260dp"
+        android:layout_width="170dp"
+        android:id="@+id/leftP1"
+        android:text="@string/btn_left_decrement"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/btn_onpress"/>
 
-        <Button
-            android:layout_height="60dp"
-            android:layout_width="110dp"
-            android:id="@+id/leftP1"
-            android:text="@string/btn_left_decrement"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:textAlignment="gravity"
-            android:background="@drawable/btn_onpress"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
-            android:layout_alignParentStart="true" />
+    <Button
+        android:layout_height="260dp"
+        android:layout_width="170dp"
+        android:id="@+id/rightP1"
+        android:text="@string/btn_right_increment"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/btn_onpress"
+        android:layout_alignParentEnd="true"/>
 
-        <Button
-            android:layout_height="60dp"
-            android:layout_width="110dp"
-            android:id="@+id/rightP1"
-            android:text="@string/btn_right_increment"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:background="@drawable/btn_onpress"
-            android:layout_above="@+id/leftP2"
-            android:layout_toRightOf="@+id/leftP1"
-            android:layout_toEndOf="@+id/leftP1"/>
+    <Button
+        android:layout_height="260dp"
+        android:layout_width="170dp"
+        android:id="@+id/leftP2"
+        android:text="@string/btn_left_decrement"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textAlignment="gravity"
+        android:background="@drawable/btn_onpress"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/leftP1"/>
 
-        <Button
-            android:layout_height="60dp"
-            android:layout_width="110dp"
-            android:id="@+id/rightP2"
-            android:text="@string/btn_right_increment"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:background="@drawable/btn_onpress"
-            android:layout_alignTop="@+id/leftP2"
-            android:layout_toRightOf="@+id/leftP2"
-            android:layout_toEndOf="@+id/leftP2"
-            android:layout_gravity="center_vertical" />
+    <Button
+        android:layout_height="260dp"
+        android:layout_width="170dp"
+        android:id="@+id/rightP2"
+        android:text="@string/btn_right_increment"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="@drawable/btn_onpress"
+        android:layout_alignTop="@+id/leftP2"
+        android:layout_alignParentEnd="true"/>
 
 <!--    <Button
         android:layout_width="wrap_content"
