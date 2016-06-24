@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="@string/playerOne"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_above="@+id/editText"
+        android:layout_above="@+id/editTextDie"
         android:layout_alignRight="@+id/textView2"
         android:layout_alignEnd="@+id/textView2"
         android:layout_alignLeft="@+id/textView5"
@@ -64,7 +64,7 @@
         android:layout_alignStart="@+id/textView5"/>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextDie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

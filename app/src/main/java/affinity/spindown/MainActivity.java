@@ -15,14 +15,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AdapterView
-        .OnItemSelectedListener, OnePlayerFragment.Callbacks {
+
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //Declare our local variables
     Spinner mSpinner;
@@ -36,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView
 
     private Toolbar toolbar;
 
-    @NotNull
+    //@NotNull
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView
 //        DataBindingUtil.setContentView(this, R.layout.activity_main);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
     }
 
@@ -138,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView
             default:
                 Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
         }
-//        diceRoll = fragmentManager.findFragmentById(R.id.fragment_dice)
     }
 
     @Override
@@ -156,63 +152,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView
         }else{
            super.onBackPressed();
         }
-    }
-
-    @Override
-    public void onPlayerSelected(int playerPosition) {
-//        fragmentManager = getFragmentManager();
-//        switch (playerPosition) {
-//            //Creates our Player 1
-//            case 0:
-//                fragment = fragmentManager.findFragmentById(R.id.one_player);
-//                if (fragment == null) {
-//                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerFragment()).commit();
-//                }
-////                @NOTE: Manage this when you can! Try one at hiding fragments/visibility
-////                else if((fragmentManager.findFragmentById(R.id.one_player) !=
-////                        null) && fragmentTwo != null){
-////                    fragmentManager.beginTransaction().remove(fragmentManager
-////                            .findFragmentById(R.id
-////                            .two_player)).commit();
-////                }
-//                Toast.makeText(MainActivity.this, "One Player", Toast.LENGTH_SHORT).show();
-//                break;
-//
-//            //Creates our Player 2
-//            case 1:
-//                fragmentTwo = fragmentManager.findFragmentById(R.id.two_player);
-//                if (fragmentTwo == null) {
-//                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new TwoPlayerFragment()).commit();
-//                }
-//
-//                Toast.makeText(MainActivity.this, "Two Players", Toast.LENGTH_SHORT).show();
-//                break;
-//
-//            //Creates our Player 3
-//            case 2:
-//                fragmentThree = fragmentManager.findFragmentById(R.id.three_player);
-//                if (fragmentThree == null) {
-//                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
-//                            ThreePlayerFragment()).commit();
-//                }
-//                Toast.makeText(MainActivity.this, "Three Players", Toast.LENGTH_SHORT).show();
-//                break;
-//
-//            //Creates our Player 4
-//            case 3:
-//                fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
-//                if (fragmentFour == null) {
-//                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
-//                            FourPlayerFragment()).commit();
-//                }
-//                Toast.makeText(MainActivity.this, "Four Players", Toast.LENGTH_SHORT).show();
-//                break;
-//
-//            //Default to a toast. Needn't be worried by this, gov'nor!
-//            default:
-//                Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
-//        }
-////        diceRoll = fragmentManager.findFragmentById(R.id.fragment_dice)
     }
 }
 
