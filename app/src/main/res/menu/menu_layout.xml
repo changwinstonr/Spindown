@@ -19,6 +19,7 @@
         android:id="@+id/spinner"
         spindown:showAsAction="always"
         spindown:actionViewClass="android.widget.Spinner"
+
         android:title="Players"
         android:icon="@drawable/ic_players_gold_36x"
         />
