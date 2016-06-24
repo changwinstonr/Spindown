@@ -2,30 +2,43 @@ package affinity.spindown;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class TwoPlayerFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TwoPlayerFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
     Button getRightP2, getLeftP2, getRightP1, getLeftP1, Reset;
     TextView tv, tv2;
     int counterPlayerOne, counterPlayerTwo;
+    Spinner mSpinner;
+    List<String> mList;
+    ArrayAdapter<String> mSpinnerAdapter;
+    FragmentManager fragmentManager;
+    Fragment fragment, fragmentTwo, fragmentThree, fragmentFour;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Edit counter with settings options; for now, default: 0
-        counterPlayerOne = 20;
-        counterPlayerTwo = 20;
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -40,7 +53,6 @@ public class TwoPlayerFragment extends Fragment {
         getLeftP1   = (Button) view.findViewById(R.id.leftP1);
         tv          = (TextView) view.findViewById(R.id.textViewP1);
         tv2         = (TextView) view.findViewById(R.id.textViewP2);
-//        Reset       = (Button) view.findViewById(R.id.button);
 
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "YouRookMarbelous.ttf");
         getRightP2.setTypeface(tf);
@@ -94,19 +106,36 @@ public class TwoPlayerFragment extends Fragment {
         return view;
     }
 
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        //Inflate our spinner; this is a special case because of fragment (needs inflater)
-        menu.clear();
+        //Inflate our spinner
         inflater.inflate(R.menu.menu_layout, menu);
+        MenuItem item = menu.findItem(R.id.spinner);
+        mList = new ArrayList<>();
+        mList.add(Integer.toString(1));
+        mList.add(Integer.toString(2));
+        mList.add(Integer.toString(3));
+        mList.add(Integer.toString(4));
+
+        mSpinner = (Spinner) MenuItemCompat.getActionView(item);
+        mSpinnerAdapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, mList);
+        mSpinnerAdapter.setDropDownViewResource(R.layout.spinner_item);
+//        mSpinnerAdapter.getBackground().setColorFilter(Color.parseColor("#00ff00"), PorterDuff.Mode
+//                .DARKEN);
+        mSpinner.setBackgroundResource(R.drawable.ic_players_gold_36x);
+        mSpinner.setAdapter(mSpinnerAdapter);
+        mSpinner.setOnItemSelectedListener(this);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //User selects settings icon
         if (item.getItemId() == R.id.reset) {
             updateUI();
+            return true;
         }
-        return false;
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -134,10 +163,62 @@ public class TwoPlayerFragment extends Fragment {
         }
 
         String counterOne = Integer.toString(counterPlayerOne);
-        tv.setText(counterOne);
-
         String counterTwo = Integer.toString(counterPlayerTwo);
-        tv2.setText(counterTwo);
+        tv.setText(counterOne);
+        tv.setText(counterTwo);
+    }
+
+    //Out of desperation.
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        fragmentManager = getFragmentManager();
+        switch (i) {
+            //Creates our Player 1
+            case 0:
+                fragment = fragmentManager.findFragmentById(R.id.one_player);
+                if (fragment == null) {
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new OnePlayerFragment()).commit();
+                }
+                break;
+            //Creates our Player 2
+//            case 1:
+//                fragmentTwo = fragmentManager.findFragmentById(R.id.two_player);
+//                if (fragmentTwo == null) {
+//                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
+//                            TwoPlayerFragment()).commit();
+//                }
+//                Toast.makeText(getActivity(), "Two Players", Toast.LENGTH_SHORT).show();
+//                break;
+            //Creates our Player 3
+            case 2:
+                fragmentThree = fragmentManager.findFragmentById(R.id.three_player);
+                if (fragmentThree == null) {
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
+                            ThreePlayerFragment()).commit();
+                }
+                Toast.makeText(getActivity(), "Three Players", Toast.LENGTH_SHORT).show();
+                break;
+
+            //Creates our Player 4
+            case 3:
+                fragmentFour = fragmentManager.findFragmentById(R.id.four_player);
+                if (fragmentFour == null) {
+                    fragmentManager.beginTransaction().add(R.id.fragmentHolder, new
+                            FourPlayerFragment()).commit();
+                }
+                Toast.makeText(getActivity(), "Four Players", Toast.LENGTH_SHORT).show();
+                break;
+
+            //Default to a toast. Needn't be worried by this, gov'nor!
+            default:
+                Toast.makeText(getActivity(), "No Players..?", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }
 

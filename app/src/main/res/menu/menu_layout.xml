@@ -26,8 +26,9 @@
 
     <item
         android:id="@+id/settings"
-        spindown:showAsAction="never"
+        spindown:showAsAction="always"
         android:title="Settings"
+        android:icon="@drawable/ic_settings_gold_36x"
         />
 
 </menu>

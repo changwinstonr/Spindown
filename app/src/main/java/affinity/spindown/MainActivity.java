@@ -132,8 +132,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
 
             //Default to a toast. Needn't be worried by this, gov'nor!
-            default:
-                Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
+//            default:
+//                Toast.makeText(MainActivity.this, "No Players..?", Toast.LENGTH_SHORT).show();
+//                break;
         }
     }
 
