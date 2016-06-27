@@ -2,6 +2,9 @@
 #Spindown
 Winston Chang & Aaron Artea
 
+**UPDATE** 06/24/2016: We are now in Alpha on the Google Play Store: Come join the testing as we continuously add more to our app. Just look at that planned updates list!
+["Spindown" - Join the Alpha Test!](https://play.google.com/apps/testing/affinity.spindown "Spindown - Join the Alpha Test!")
+
 ---
 ##Description
 Spindown started as a life counter Android application for the "Magic the Gathering" TCG (tradable card game).  The Google Play store offers many applications with similar functionality, those that are there are feature heavy, but lacked a great user experience or feature light and weren't free. We aim to satisfy this void... 
